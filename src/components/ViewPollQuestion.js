@@ -1,35 +1,46 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAwnserQuestion } from '../actions/questions';
+import { handleAddUserVotes } from '../actions/users';
 
 class PollQuestion extends Component {
   state = {
-    value: '',
+    answer: '',
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      answer: e.target.value
+    })
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // alert(this.state.value);
 
     const { dispatch, question, authedUser } = this.props;
     const { answer } = this.state;
 
     dispatch(handleAwnserQuestion({
-      id: question.id,
       authedUser,
+      qid: question.id,
       answer
     }))
-  }
 
-  handleChange = (e) => {
-    e.preventDefault();
-    this.setState({
-      value: e.target.value
-    })
+    dispatch(handleAddUserVotes({
+      authedUser,
+      qid: question.id,
+      answer
+    }))
+
+    // Todo: Show Results when question is answered
+    // Todo: Show a new updated user with their votes
+
   }
 
   render() {
-    const { author, question, id } = this.props;
+    const { author, question } = this.props;
 
     return (
       <div>
@@ -46,6 +57,7 @@ class PollQuestion extends Component {
               <option disabled>OR</option>
               <option value='optionTwo'>{question.optionTwo.text}</option>
             </select>
+            {/* Todo: disable submit button when this.state.answer === '' */}
             <button type='submit'>Submit</button>
           </form>
         </div>
@@ -55,12 +67,14 @@ class PollQuestion extends Component {
 }
 
 function mapStateToProps({ authedUser, questions, users }, props) {
-  const { id } = props.match.params
+  const { id } = props.match.params;
+  const question = questions[id];
 
   return {
     id,
-    question: questions[id],
-    author: users[questions[id].author]
+    authedUser,
+    question,
+    author: users[question.author]
   }
 }
 

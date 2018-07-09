@@ -85,7 +85,7 @@ class NewPoll extends Component {
           )}
           <button
             type='submit'
-            disabled={optionOneText  === '' || optionTwoText  === ''}
+            disabled={optionOneText === '' || optionTwoText === ''}
           >Submit</button>
         </form>
       </div>

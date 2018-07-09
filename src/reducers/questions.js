@@ -8,10 +8,15 @@ export default function questions(state = {}, action) {
         ...action.questions
       }
     case ANSWER_QUESTION:
+    console.log(state)
       return {
         ...state,
-        [action.id]: {
-          ...state[action.id].concat([action.authedUser])
+        [action.qid]: {
+          ...state[action.qid],
+          [action.answer]: {
+            ...state[action.qid][action.answer],
+            votes: state[action.qid][action.answer].votes.concat([action.authedUser])
+          }
         }
       }
     case ADD_QUESTION:
