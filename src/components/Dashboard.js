@@ -31,7 +31,7 @@ class Dashboard extends Component {
           <option value='answered'>Answered</option>
         </select>
         <ul>
-          {!this.state.answered
+          {this.state.answered
             ? (
               questionIds.map((id) => {
                 if (userawnser[0] === id || userawnser[1] === id) {

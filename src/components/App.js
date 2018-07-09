@@ -6,6 +6,7 @@ import { handleInitialData } from '../actions/shared';
 
 import PollQuestion from './ViewPollQuestion';
 import Dashboard from './Dashboard';
+import NewPoll from './NewPoll';
 import './App.css';
 
 class App extends Component {
@@ -24,7 +25,7 @@ class App extends Component {
               : <div>
                 <Route path='/' exact component={Dashboard} />
                 <Route path='/question/:id' component={PollQuestion} />
-                {/* <Route path='/new' component={NewTweet} /> */}
+                <Route path='/new' component={NewPoll} />
               </div>}
           </div>
         </Fragment>

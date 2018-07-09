@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { formatPollQuestion } from '../utils/helpers';
+import { handleAwnserQuestion } from '../actions/questions';
 
 class PollQuestion extends Component {
   state = {
@@ -9,7 +9,16 @@ class PollQuestion extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    alert(this.state.value);
+    // alert(this.state.value);
+
+    const { dispatch, question, authedUser } = this.props;
+    const { answer } = this.state;
+
+    dispatch(handleAwnserQuestion({
+      id: question.id,
+      authedUser,
+      answer
+    }))
   }
 
   handleChange = (e) => {
