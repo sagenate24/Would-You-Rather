@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './App.css';
-import { setAuthedUser } from '../actions/authedUser';
+// import { handleSetAuthedUser } from '../actions/authedUser';
 // import { handleInitialData } from '../actions/shared';
 
 class Login extends Component {
   handleAuthedUser(e) {
     e.preventDefault();
-    this.props.dispatch(setAuthedUser(e.target.value))
+    // this.props.dispatch(handleSetAuthedUser(e.target.value))
   }
   render() {
     return (

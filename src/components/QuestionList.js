@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Question from './Question'
 
-class Dashboard extends Component {
+import Question from './Question';
+
+class QuestionList extends Component {
   state = {
     answered: false
   }
@@ -21,7 +22,6 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log(this.props)
     const { questionIds, userawnser } = this.props;
     return (
       <div>
@@ -34,23 +34,29 @@ class Dashboard extends Component {
           {this.state.answered
             ? (
               questionIds.map((id) => {
-                if (userawnser[0] === id || userawnser[1] === id) {
+                let answeredID = userawnser.find((answer) => {
+                  if (answer === id) { return id; }
+                });
+
+                if (answeredID === id) {
                   return (
                     <li key={id}>
                       <Question id={id} />
                     </li>
-                  )
+                  );
                 }
               })
             ) : (
               questionIds.map((id) => {
-                if (userawnser[0] !== id && userawnser[1] !== id) {
-                  // console.log(id)
+                let unansweredID = userawnser.find((answer) => {
+                  if (answer === id) { return id; }
+                });
+                if (unansweredID !== id) {
                   return (
                     <li key={id}>
                       <Question id={id} />
                     </li>
-                  )
+                  );
                 }
               }
               ))}
@@ -64,11 +70,12 @@ function mapStateToProps({ questions, users, authedUser }) {
   const userAwnsers = users[authedUser].answers
 
   return {
-    authedUser,
+    // authedUser,
+    // questions,
     userawnser: Object.keys(userAwnsers),
     questionIds: Object.keys(questions)
       .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
   }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(QuestionList);

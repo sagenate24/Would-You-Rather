@@ -6,14 +6,14 @@ export const ANSWER_QUESTION = 'ANSWER_QUESTION';
 export const ADD_QUESTION = 'ADD_QUESTION';
 
 // Add Question Actions
-function addQuestion (question) {
+function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question,
   }
 }
 
-export function handleAddQuestion (optionOneText, optionTwoText) {
+export function handleAddQuestion(optionOneText, optionTwoText) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
 
@@ -24,7 +24,7 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
       optionTwoText,
       author: authedUser
     }).then((optionOneText, optionTwoText) => dispatch(addQuestion(optionOneText, optionTwoText)))
-    .then(() => dispatch(hideLoading()));
+      .then(() => dispatch(hideLoading()));
   }
 }
 
@@ -53,7 +53,7 @@ export function handleAwnserQuestion(info) {
   }
 }
 
-export function receiveQuestions (questions) {
+export function receiveQuestions(questions) {
   return {
     type: RECEIVE_QUESTIONS,
     questions,

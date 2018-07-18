@@ -6,13 +6,10 @@ import { Link, withRouter } from 'react-router-dom';
 class Question extends Component {
 
   handleStringLength(str) {
-    const length = 11;
     const ending = '...';
-    if (str.length > length) {
-      return str.substring(0, length - ending.length) + ending;
-    } else {
-      return str;
-    }
+    if (str.length > 11) {
+      return str.substring(0, 11 - ending.length) + ending;
+    } else { return str; }
   }
 
   render() {
@@ -23,20 +20,20 @@ class Question extends Component {
         <h3>Would You Rather</h3>
         <img src={avatar} alt='avatar' height={'80px'} />
         <p>{this.handleStringLength(optionOne.text)}</p>
-        <span><Link to={`/question/${id}`}>View Poll</Link></span>
+        <Link to={`/question/${id}`}>View Poll</Link>
       </div>
     );
-
   }
 }
 
 function mapStateToProps({ authedUser, users, questions }, { id }) {
   const question = questions[id];
-  const userAwnsers = users[authedUser].answers
+  // const userAwnsers = users[authedUser].answers
 
   return {
-    authedUser,
-    userawnser: Object.keys(userAwnsers),
+    // authedUser,
+    // id,
+    // userawnser: Object.keys(userAwnsers),
     question: formatPollQuestion(question, users[question.author], authedUser)
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../actions/questions';
+import { handleAddUserQuestion } from '../actions/users';
 import { Redirect } from 'react-router-dom';
 
 class NewPoll extends Component {
@@ -33,7 +34,8 @@ class NewPoll extends Component {
     const { optionOneText, optionTwoText } = this.state;
     const { dispatch, id } = this.props;
 
-    dispatch(handleAddQuestion(optionOneText, optionTwoText))
+    dispatch(handleAddQuestion(optionOneText, optionTwoText));
+    dispatch(handleAddUserQuestion(id));
 
     console.log('Option A: ', optionOneText)
     console.log('Option B: ', optionTwoText)

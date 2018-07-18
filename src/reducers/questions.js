@@ -8,7 +8,6 @@ export default function questions(state = {}, action) {
         ...action.questions
       }
     case ANSWER_QUESTION:
-    console.log(state)
       return {
         ...state,
         [action.qid]: {
@@ -20,6 +19,7 @@ export default function questions(state = {}, action) {
         }
       }
     case ADD_QUESTION:
+    console.log(...state)
       return {
         ...state,
         [action.question.id]: action.question
