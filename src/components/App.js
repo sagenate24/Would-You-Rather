@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading';
 import { connect } from 'react-redux';
-import { handleInitialData } from '../actions/shared';
 import './App.css';
 
 import PollQuestion from './PollQuestion';
@@ -11,12 +10,18 @@ import NewPoll from './NewPoll';
 import Nav from './Nav';
 import Leaderboard from './Leaderboard';
 import Login from './Login';
+import { handleInitialData } from '../actions/shared';
 
 class App extends Component {
+
   componentDidMount() {
-    this.props.dispatch(handleInitialData())
+    this.props.dispatch(handleInitialData());
   }
+
   render() {
+
+    // Todo: Add logout feature
+
     return (
       <Router>
         <Fragment>
@@ -24,7 +29,7 @@ class App extends Component {
           <div className='container'>
             <Nav />
             {this.props.loading === true
-              ? null//<Route path='/login' component={Login} />
+              ? <Route to='/login' exact component={Login} />
               : <div>
                 <Route path='/' exact component={QuestionList} />
                 <Route path='/question/:id' component={PollQuestion} />

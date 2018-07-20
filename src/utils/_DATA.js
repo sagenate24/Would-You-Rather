@@ -131,6 +131,12 @@ export function _getQuestions () {
   })
 }
 
+// export function _getAuthedUser () {
+//   return new Promise((res, rej) => {
+//     setTimeout(() => res(...authedUser), 100)
+//   })
+// }
+
 function formatQuestion ({ optionOneText, optionTwoText, author }) {
   return {
     id: generateUID(),

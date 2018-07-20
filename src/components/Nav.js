@@ -20,6 +20,9 @@ export default function Nav() {
             Leaderboard
           </NavLink>
         </li>
+        <li>
+          <NavLink to='/login' activeClassName='active'></NavLink>
+        </li>
       </ul>
     </nav>
   );

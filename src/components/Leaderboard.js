@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import '../styles/Leaderboard.css';
 
 class Leaderboard extends Component {
-
   organizeLeaderBoard(a, b) {
     let total = a + b;
     return total;
@@ -51,7 +50,6 @@ function mapStateToProps({ authedUser, users, questions }) {
   ));
 
   return {
-    // authedUser,
     userDetails,
   }
 }
