@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export default function Nav() {
   return (
@@ -22,6 +22,9 @@ export default function Nav() {
         </li>
         <li>
           <NavLink to='/login' activeClassName='active'></NavLink>
+        </li>
+        <li>
+          <NavLink to='/will-not-match'></NavLink>
         </li>
       </ul>
     </nav>

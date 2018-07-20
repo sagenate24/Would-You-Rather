@@ -39,6 +39,7 @@ class PollQuestion extends Component {
     this.setState(() => ({
       questionAwnseredMaybe: true
     }));
+    // Todo: Show Results when question is answered
   }
 
   componentDidMount() {

@@ -15,10 +15,6 @@ export function getInitialData () {
   }))
 }
 
-// export function getDataAfterAuthed () {
-//   return _getAuthedUser(info)
-// }
-
 export function saveQuestion (info) {
   return _saveQuestion(info)
 }

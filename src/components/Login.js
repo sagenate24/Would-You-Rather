@@ -30,8 +30,8 @@ class Login extends Component {
         <form>
           <select defaultValue='chooseAvatar' onChange={this.handleChange}>
             <option value='chooseAvatar' disabled>Choose Avatar</option>
-            <option value='sarahedo'>Sarah Edo</option>
-            <option value='tylermcginnis'>Tyler McGinnis</option>
+            <option value='claire'>Claire Teters</option>
+            <option value='nathan'>Nathan Sage</option>
             <option value='johndoe'>John Doe</option>
           </select>
           <button type='submit' onClick={this.handleAuthedUser}>Sign In</button>

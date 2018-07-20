@@ -1,8 +1,13 @@
+import * as NathanUrl from '../Images/me.png';
+import * as ClaireUrl from '../Images/claire.jpg';
+import * as JohnDoe from '../Images/johnDoe.jpg';
+
+
 let users = {
-  sarahedo: {
-    id: 'sarahedo',
-    name: 'Sarah Edo',
-    avatarURL: 'https://tylermcginnis.com/would-you-rather/sarah.jpg',
+  claire: {
+    id: 'claire',
+    name: 'Claire Teters',
+    avatarURL: ClaireUrl,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -11,10 +16,10 @@ let users = {
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
-  tylermcginnis: {
-    id: 'tylermcginnis',
-    name: 'Tyler McGinnis',
-    avatarURL: 'https://tylermcginnis.com/would-you-rather/tyler.jpg',
+  nathan: {
+    id: 'nathan',
+    name: 'Nathan Sage',
+    avatarURL: NathanUrl,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +29,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://tylermcginnis.com/would-you-rather/dan.jpg',
+    avatarURL: JohnDoe,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -37,10 +42,10 @@ let users = {
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
-    author: 'sarahedo',
+    author: 'claire',
     timestamp: 1467166872634,
     optionOne: {
-      votes: ['sarahedo'],
+      votes: ['claire'],
       text: 'have horrible short term memory',
     },
     optionTwo: {
@@ -57,42 +62,42 @@ let questions = {
       text: 'become a superhero',
     },
     optionTwo: {
-      votes: ['johndoe', 'sarahedo'],
+      votes: ['johndoe', 'claire'],
       text: 'become a supervillian'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {
     id: 'am8ehyc8byjqgar0jgpub9',
-    author: 'sarahedo',
+    author: 'claire',
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
       text: 'be telekinetic',
     },
     optionTwo: {
-      votes: ['sarahedo'],
+      votes: ['claire'],
       text: 'be telepathic'
     }
   },
   "loxhs1bqm25b708cmbf3g": {
     id: 'loxhs1bqm25b708cmbf3g',
-    author: 'tylermcginnis',
+    author: 'nathan',
     timestamp: 1482579767190,
     optionOne: {
       votes: [],
       text: 'be a front-end developer',
     },
     optionTwo: {
-      votes: ['sarahedo'],
+      votes: ['claire'],
       text: 'be a back-end developer'
     }
   },
   "vthrdm985a262al8qx3do": {
     id: 'vthrdm985a262al8qx3do',
-    author: 'tylermcginnis',
+    author: 'nathan',
     timestamp: 1489579767190,
     optionOne: {
-      votes: ['tylermcginnis'],
+      votes: ['nathan'],
       text: 'find $50 yourself',
     },
     optionTwo: {
@@ -109,7 +114,7 @@ let questions = {
       text: 'write JavaScript',
     },
     optionTwo: {
-      votes: ['tylermcginnis'],
+      votes: ['nathan'],
       text: 'write Swift'
     }
   },
@@ -130,12 +135,6 @@ export function _getQuestions () {
     setTimeout(() => res({...questions}), 1000)
   })
 }
-
-// export function _getAuthedUser () {
-//   return new Promise((res, rej) => {
-//     setTimeout(() => res(...authedUser), 100)
-//   })
-// }
 
 function formatQuestion ({ optionOneText, optionTwoText, author }) {
   return {

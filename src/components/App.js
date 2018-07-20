@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading';
 import { connect } from 'react-redux';
+import { handleInitialData } from '../actions/shared';
+import { handleLogOutUser } from '../actions/authedUser';
 import './App.css';
 
 import PollQuestion from './PollQuestion';
@@ -10,7 +12,6 @@ import NewPoll from './NewPoll';
 import Nav from './Nav';
 import Leaderboard from './Leaderboard';
 import Login from './Login';
-import { handleInitialData } from '../actions/shared';
 
 class App extends Component {
 
@@ -18,23 +19,27 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
 
+  handleLogOut = () => {
+    this.props.dispatch(handleLogOutUser());
+  }
+
   render() {
-
-    // Todo: Add logout feature
-
     return (
       <Router>
         <Fragment>
           <LoadingBar />
           <div className='container'>
             <Nav />
+            <button onClick={this.handleLogOut}>Log out</button>
             {this.props.loading === true
               ? <Route to='/login' exact component={Login} />
               : <div>
-                <Route path='/' exact component={QuestionList} />
-                <Route path='/question/:id' component={PollQuestion} />
-                <Route path='/add' component={NewPoll} />
-                <Route path='/leaderboard' component={Leaderboard} />
+                <Switch>
+                  <Route path='/' exact component={QuestionList} />
+                  <Route path='/question/:id' component={PollQuestion} />
+                  <Route path='/add' component={NewPoll} />
+                  <Route path='/leaderboard' component={Leaderboard} />
+                </Switch>
               </div>}
           </div>
         </Fragment>
