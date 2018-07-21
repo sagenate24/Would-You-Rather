@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { formatPollQuestion } from '../utils/helpers';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, Route } from 'react-router-dom';
 
 class Question extends Component {
 
@@ -20,7 +20,7 @@ class Question extends Component {
         <h3>Would You Rather</h3>
         <img src={avatar} alt='avatar' height={'80px'} />
         <p>{this.handleStringLength(optionOne.text)}</p>
-        <Link to={`/question/${id}`}>View Poll</Link>
+        <Link to={`/questions/${id}`}>View Poll</Link>
       </div>
     );
   }
@@ -28,12 +28,8 @@ class Question extends Component {
 
 function mapStateToProps({ authedUser, users, questions }, { id }) {
   const question = questions[id];
-  // const userAwnsers = users[authedUser].answers
 
   return {
-    // authedUser,
-    // id,
-    // userawnser: Object.keys(userAwnsers),
     question: formatPollQuestion(question, users[question.author], authedUser)
   }
 }

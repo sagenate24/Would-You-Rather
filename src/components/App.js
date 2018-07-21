@@ -12,9 +12,9 @@ import NewPoll from './NewPoll';
 import Nav from './Nav';
 import Leaderboard from './Leaderboard';
 import Login from './Login';
+import NoMatch from './NoMatch';
 
 class App extends Component {
-
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <Router>
         <Fragment>
@@ -33,14 +34,16 @@ class App extends Component {
             <button onClick={this.handleLogOut}>Log out</button>
             {this.props.loading === true
               ? <Route to='/login' exact component={Login} />
-              : <div>
+              :
                 <Switch>
+                  {/* {console.log(location)} */}
                   <Route path='/' exact component={QuestionList} />
-                  <Route path='/question/:id' component={PollQuestion} />
+                  <Route path='/questions/:id' component={PollQuestion} />
                   <Route path='/add' component={NewPoll} />
                   <Route path='/leaderboard' component={Leaderboard} />
+                  <Route component={NoMatch}/>
                 </Switch>
-              </div>}
+              }
           </div>
         </Fragment>
       </Router>

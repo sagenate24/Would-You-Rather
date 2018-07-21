@@ -1,32 +1,32 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Nav() {
   return (
-    <nav className='nav'>
+    // <nav className='nav'>
       <ul>
         <li>
-          <NavLink to='/' exact activeClassName='active'>
+          <Link to='/'>
             Home
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink to='/add' activeClassName='active'>
+          <Link to='/add' >
             New Poll
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink to='/leaderboard' activeClassName='active'>
+          <Link to='/leaderboard'>
             Leaderboard
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink to='/login' activeClassName='active'></NavLink>
+          <Link to='/login'></Link>
         </li>
         <li>
-          <NavLink to='/will-not-match'></NavLink>
+          <Link to='/will-not-match'></Link>
         </li>
       </ul>
-    </nav>
+    // </nav>
   );
 }

@@ -13,11 +13,11 @@ class QuestionList extends Component {
     if (e.target.value === 'answered') {
       this.setState({
         answered: true
-      })
+      });
     } else if (e.target.value === 'unanswered') {
       this.setState({
         answered: false
-      })
+      });
     }
   }
 
