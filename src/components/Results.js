@@ -2,21 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Results extends Component {
-
   handleWord(number) {
     if (number.length > 1) {
-      return `${number.length} ot of 3 votes`;
+      return `${number.length} out of ${this.props.userArray.length} votes`;
     } else if (number.length === 0) {
       return 'no one voted this';
-    } else { return `${number.length} out of 3 votes`; }
+    } else {
+      return `${number.length} out of ${this.props.userArray.length} votes`;
+    }
   }
 
   handlePercent(number) {
     if (number.length > 0) {
-      let votesDivUsers = number.length / 3;
+      let votesDivUsers = number.length / this.props.userArray.length;
       let stringifNumber = votesDivUsers.toString();
-      let percent = stringifNumber.substring(2, 4) + '%';
-      return `${percent} of people voted for this option`;
+
+      if (stringifNumber === '1') {
+        return '100% of people voted for this option';
+      } else {
+        let percent = stringifNumber.substring(2, 4) + '%';
+        return `${percent} of people voted for this option`;
+      }
     } else { return null; }
   }
 
@@ -34,7 +40,6 @@ class Results extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { question } = this.props;
     return (
       <div>
@@ -67,8 +72,9 @@ function mapStateToProps({ authedUser, questions, users }, props) {
     id,
     authedUser,
     users,
+    userArray: Object.keys(users),
     question,
-    author: users[question.author]
+    author: users[question.author],
   }
 }
 

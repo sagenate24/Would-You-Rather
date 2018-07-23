@@ -1,0 +1,38 @@
+.avatar {
+  height: 25px;
+  margin: 11.5px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-right: 30px;
+  float: right;
+  margin-top: -44px
+}
+
+.profile li {
+  padding: 10px;
+}
+
+.popUp-logout_p {
+  color: '#000';
+  font-size: '8px';
+}
+
+.button-yes, .button-cancel {
+  font-size: 11px;
+  border: none;
+  transition: background-color .25s;
+}
+
+.button-yes:hover {
+  color: rgb(6, 94, 201);
+  cursor: pointer;
+}
+
+.button-cancel:hover {
+  color: rgba(204, 25, 25, 0.824);
+  cursor: pointer;
+}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleAddQuestion } from '../actions/questions';
-import { handleAddUserQuestion } from '../actions/users';
+import { handleAddQuestion } from '../actions/shared';
 import { Redirect } from 'react-router-dom';
 
 class NewPoll extends Component {
@@ -13,18 +12,16 @@ class NewPoll extends Component {
 
   handleChangeA = (e) => {
     const optionOneText = e.target.value;
-
     this.setState(() => ({
       optionOneText
-    }))
+    }));
   }
 
   handleChangeB = (e) => {
     const optionTwoText = e.target.value;
-
     this.setState(() => ({
       optionTwoText
-    }))
+    }));
   }
 
   // handleSubmit adds the question to the store.
@@ -33,30 +30,23 @@ class NewPoll extends Component {
 
     const { optionOneText, optionTwoText } = this.state;
     const { dispatch, id } = this.props;
-
     dispatch(handleAddQuestion(optionOneText, optionTwoText));
-    dispatch(handleAddUserQuestion(id));
-
-    console.log('Option A: ', optionOneText)
-    console.log('Option B: ', optionTwoText)
-
+    
     // resets textfield to an empty string.
     this.setState(() => ({
       optionOneText: '',
       optionTwoText: '',
       toHome: id ? false : true,
-    }))
+    }));
   }
 
   render() {
     const { optionOneText, optionTwoText, toHome } = this.state;
-
+    const charactersLeftA = 80 - optionOneText.length;
+    const charactersLeftB = 80 - optionTwoText.length;
     if (toHome === true) {
       return <Redirect to='/' />
     }
-
-    const charactersLeftA = 80 - optionOneText.length;
-    const charactersLeftB = 80 - optionTwoText.length;
 
     return (
       <div>
@@ -91,8 +81,14 @@ class NewPoll extends Component {
           >Submit</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default connect()(NewPoll);
+function mapStateToProps ({ authedUser }) {
+  return {
+    authedUser,
+  }
+}
+
+export default connect(mapStateToProps)(NewPoll);

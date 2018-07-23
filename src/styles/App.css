@@ -5,22 +5,7 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+  height: 120px;
 }
 
 @keyframes App-logo-spin {
@@ -29,9 +14,20 @@
 }
 
 .container {
-  /* margin: 0 auto; */
   text-align: center;
 }
+
+.nav_bar {
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgba(201, 201, 201, 0.468);
+  padding-top: 8px;
+  border-bottom: .5px solid #252525a1;
+}
+/*
+@media only screen and (min-width: 700px) {
+
+} */
 
 li {
   text-decoration: none;

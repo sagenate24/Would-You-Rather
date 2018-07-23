@@ -23,6 +23,6 @@ export function logOutUser() {
 
 export function handleLogOutUser() {
   return (dispatch) => {
-    dispatch(logOutUser())
+    dispatch(logOutUser());
   }
 }

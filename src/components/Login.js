@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from '../logo.svg';
-import './App.css';
+import '../styles/App.css';
 import { handleSetAuthedUser } from '../actions/authedUser';
+import '../styles/Login.css';
 
 class Login extends Component {
   state = {
@@ -19,26 +20,52 @@ class Login extends Component {
   }
 
   render() {
+    const { userArray, users } = this.props;
     return (
-      <div>
-        <div>
-          <h3>Welcome To Would You Rather App!</h3>
+      <div className='login_container'>
+        <div className='login_header'>
+          <span><h1>Welcome to my Would You Rather App!</h1></span>
           <p>Please sign in to continue</p>
         </div>
-        <img src={logo} className='App-logo' alt='logo' />
-        <h1>Sign in</h1>
-        <form>
-          <select defaultValue='chooseAvatar' onChange={this.handleChange}>
-            <option value='chooseAvatar' disabled>Choose Avatar</option>
-            <option value='claire'>Claire Teters</option>
-            <option value='nathan'>Nathan Sage</option>
-            <option value='johndoe'>John Doe</option>
+        <div className='login_description'>
+          <img src={logo} className='App-logo' alt='logo' />
+          <h3>Sign in</h3>
+        </div>
+        <form className='login_form'>
+          <select defaultValue='chooseAvatar' className='login_select' onChange={this.handleChange}>
+            <option value='chooseAvatar' className='login_option' disabled>Choose Avatar</option>
+            {userArray.map((user) => {
+              return (
+                <option
+                  key={users[user].id}
+                  value={users[user].id}
+                  className='login_option'
+                >{users[user].name}</option>
+              );
+            })}
           </select>
-          <button type='submit' onClick={this.handleAuthedUser}>Sign In</button>
+          <button
+            type='submit'
+            onClick={this.handleAuthedUser}
+            disabled={this.state.authedUser === ''}
+            className='login_button'>Sign In</button>
         </form>
       </div>
     );
   }
 }
 
-export default connect()(Login);
+function mapStateToProps({ users }) {
+  return {
+    userArray: Object.keys(users),
+    users
+  }
+}
+
+export default connect(mapStateToProps)(Login);
+
+
+// <div key={users[user].id} onMouseEnter={this.handleChange.bind(this)} className='logo_and_name'>
+//                 <img src={users[user].avatarURL} alt='avatar' className='avatar'/>
+//                 <h1>{users[user].name}</h1>
+//               </div>

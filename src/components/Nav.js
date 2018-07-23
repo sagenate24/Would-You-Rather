@@ -1,32 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import '../styles/Nav.css';
 
 export default function Nav() {
   return (
-    // <nav className='nav'>
+    <nav className='nav'>
       <ul>
-        <li>
-          <Link to='/'>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to='/add' >
-            New Poll
-          </Link>
-        </li>
-        <li>
-          <Link to='/leaderboard'>
-            Leaderboard
-          </Link>
-        </li>
-        <li>
-          <Link to='/login'></Link>
-        </li>
-        <li>
-          <Link to='/will-not-match'></Link>
-        </li>
+        <li><NavLink activeClassName='active' exact to='/'>Home</NavLink></li>
+        <li><NavLink activeClassName='active' to='/add'>New Question</NavLink></li>
+        <li><NavLink activeClassName='active' to='/leaderboard'>Leaderboard</NavLink></li>
       </ul>
-    // </nav>
+    </nav>
   );
 }

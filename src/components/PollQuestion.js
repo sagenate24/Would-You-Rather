@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleAwnserQuestion } from '../actions/questions';
-import { handleAddUserVotes } from '../actions/users';
-// import { Redirect } from 'react-router-dom';
+import { handleAnswerQuestion } from '../actions/shared';
 
 import Results from './Results';
 import NoMatch from './NoMatch';
@@ -14,7 +12,6 @@ class PollQuestion extends Component {
 
   handleChange = (e) => {
     e.preventDefault();
-
     this.setState({
       answer: e.target.value
     })
@@ -22,63 +19,56 @@ class PollQuestion extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     const { dispatch, question, authedUser } = this.props;
     const { answer } = this.state;
 
-    dispatch(handleAwnserQuestion({
-      authedUser,
-      qid: question.id,
-      answer
-    }));
-
-    dispatch(handleAddUserVotes({
+    // Todo: add both of these to shared actions
+    dispatch(handleAnswerQuestion({
       authedUser,
       qid: question.id,
       answer
     }));
 
     this.setState(() => ({
-      questionAwnseredMaybe: true
+      resultsPage: true
     }));
   }
 
   handleInitialRender() {
-    const questionAwnsered = this.props.userAnswer.filter((answer) => answer === this.props.id)
+    const questionAwnsered = this.props.userAnswer.filter((answer) => answer === this.props.id);
 
     if (questionAwnsered.length > 0) {
       this.setState(() => ({
-        questionAwnseredMaybe: true
+        resultsPage: true
       }))
     } else {
       this.setState(() => ({
-        questionAwnseredMaybe: false
+        resultsPage: false
       }))
     }
   }
-
+  
   render() {
-    console.log(this.props)
     if (this.props.question === null) {
-      return ( <NoMatch /> )
+      return (<NoMatch />);
     }
     else {
       const { author, question, id } = this.props;
 
       return (
         <div>
-          {this.state.questionAwnseredMaybe
+          {this.state.resultsPage
             ?
             <div>
-            <img src={author.avatarURL} alt={'avatar'} height={'100px'} />
-            <div>
-              <p>{author.name} asks:</p>
-              <h3>Would You Rather?</h3>
+              <img src={author.avatarURL} alt={'avatar'} height={'100px'} />
+              <div>
+                <p>{author.name} asks:</p>
+                <h3>Would You Rather?</h3>
+              </div>
+              <div>
+                <Results key={id} id={id} />
+              </div>
             </div>
-            <div>
-              <Results key={id} id={id}/>
-            </div>
-          </div>
             :
             <div>
               <img src={author.avatarURL} alt={'avatar'} height={'100px'} />
@@ -94,15 +84,12 @@ class PollQuestion extends Component {
                     <option disabled>OR</option>
                     <option value='optionTwo'>{question.optionTwo.text}</option>
                   </select>
-                  {/* Todo: disable submit button when this.state.answer === '' */}
-                  <button type='submit'>Submit</button>
+                  <button type='submit' disabled={this.state.answer === ''}>Submit</button>
                 </form>
 
               </div>
-            </div>
-          }
-
-        </div>)
+            </div>}
+        </div>);
     }
   }
 }
@@ -113,18 +100,16 @@ function mapStateToProps({ authedUser, questions, users }, props) {
   const question = questions[id];
   const userAnswers = users[authedUser].answers;
 
-  if (id === question) {
+  if (question) {
     return {
       id,
       authedUser,
       userAnswer: Object.keys(userAnswers),
       question,
-      author: users[question.author]
+      author: users[question.author],
     }
   } else {
-    return {
-      question: null
-    }
+    return { question: null }
   }
 }
 

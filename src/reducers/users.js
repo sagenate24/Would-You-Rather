@@ -21,12 +21,12 @@ export default function user (state = {}, action) {
     case ADD_USER_QUESTION :
       return {
         ...state,
-        [action.question.author]: {
-          ...state[action.question.author],
-          questions: state[action.question.author].questions.concat([action.question.id]),
-        }
+          [action.authedUser]: {
+            ...state[action.authedUser],
+            questions: state[action.authedUser].questions.concat([action.id])
+          }
       }
     default :
-      return state
+      return state;
   }
 }

@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { formatPollQuestion } from '../utils/helpers';
-import { Link, withRouter, Route } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Question extends Component {
-
   handleStringLength(str) {
     const ending = '...';
+
     if (str.length > 11) {
       return str.substring(0, 11 - ending.length) + ending;
     } else { return str; }
   }
-
+  
   render() {
     const { author, avatar, id, optionOne } = this.props.question;
     return (

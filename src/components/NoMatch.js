@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const NoMatch = () => (
       <div>
@@ -8,4 +7,4 @@ const NoMatch = () => (
       </div>
 )
 
-export default connect()(NoMatch);
+export default NoMatch;

@@ -3,14 +3,18 @@ import { connect } from 'react-redux';
 import '../styles/Leaderboard.css';
 
 class Leaderboard extends Component {
-  organizeLeaderBoard(a, b) {
-    let total = a + b;
-    return total;
+  organizeLeaderBoard(id) {
+    if (id === this.props.userDetails[0].id) {
+      return '1';
+    } else if (id === this.props.userDetails[1].id) {
+      return '2';
+    } else if (id === this.props.userDetails[2].id) {
+      return '3';
+    } else { return null; }
   }
-
+  
   render() {
     const { userDetails } = this.props;
-
     return (
       <div>
         <h1>Leaderboard</h1>
@@ -22,17 +26,18 @@ class Leaderboard extends Component {
                 <h3>{user.name}</h3>
                 <p> questions asked: {user.questionsAsked}</p>
                 <p>questions answered: {user.questionsAnswered}</p>
-                <p>RANK: {this.organizeLeaderBoard(user.questionsAsked, user.questionsAnswered)}</p>
+                <p>RANK: {this.organizeLeaderBoard(user.id)}</p>
               </div>
             </div>
-          )
+          );
         })}
       </div>
     );
   }
 }
 
-function mapStateToProps({ authedUser, users, questions }) {
+function mapStateToProps({ users }) {
+  //create a new array of objects for each user created
   const userDetails = Object.keys(users).map((user) => {
     const userObject = {
       id: users[user].id,
@@ -41,12 +46,12 @@ function mapStateToProps({ authedUser, users, questions }) {
       questionsAsked: users[user].questions.length,
       questionsAnswered: Object.keys(users[user].answers).length,
     }
-
-    const rank = userObject.questionsAsked + userObject.questionsAnswered;
-    userObject.userRank = rank;
+    const total = userObject.questionsAsked + userObject.questionsAnswered;
+    userObject.total = total;
     return (userObject);
+
   }).sort((a, b) => (
-    b.userRank - a.userRank
+    b - a
   ));
 
   return {

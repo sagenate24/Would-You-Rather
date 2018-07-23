@@ -35,7 +35,10 @@ class QuestionList extends Component {
             ? (
               questionIds.map((id) => {
                 let answeredID = userawnser.find((answer) => {
-                  if (answer === id) { return id; }
+                  if (answer === id) {
+                    return id;
+                  }
+                  return null;
                 });
 
                 if (answeredID === id) {
@@ -45,11 +48,15 @@ class QuestionList extends Component {
                     </li>
                   );
                 }
+                return null;
               })
             ) : (
               questionIds.map((id) => {
                 let unansweredID = userawnser.find((answer) => {
-                  if (answer === id) { return id; }
+                  if (answer === id) {
+                    return id;
+                  }
+                  return null;
                 });
                 if (unansweredID !== id) {
                   return (
@@ -58,11 +65,12 @@ class QuestionList extends Component {
                     </li>
                   );
                 }
+                return null;
               }
               ))}
         </ul>
       </div>
-    )
+    );
   }
 }
 
