@@ -2,7 +2,6 @@ import * as NathanUrl from '../Images/me.png';
 import * as ClaireUrl from '../Images/claire.jpg';
 import * as JohnDoe from '../Images/johnDoe.jpg';
 
-
 let users = {
   claire: {
     id: 'claire',

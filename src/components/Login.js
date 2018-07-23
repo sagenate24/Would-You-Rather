@@ -19,7 +19,7 @@ class Login extends Component {
     e.preventDefault();
     this.props.dispatch(handleSetAuthedUser(this.state.authedUser));
   }
-  
+
   render() {
     const { userArray, users } = this.props;
     return (
@@ -64,9 +64,3 @@ function mapStateToProps({ users }) {
 }
 
 export default connect(mapStateToProps)(Login);
-
-
-// <div key={users[user].id} onMouseEnter={this.handleChange.bind(this)} className='logo_and_name'>
-//                 <img src={users[user].avatarURL} alt='avatar' className='avatar'/>
-//                 <h1>{users[user].name}</h1>
-//               </div>

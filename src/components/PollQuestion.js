@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAnswerQuestion } from '../actions/shared';
+import '../styles/PollQuestion.css';
 
 import Results from './Results';
 import NoMatch from './NoMatch';
@@ -10,10 +11,10 @@ class PollQuestion extends Component {
     answer: '',
   }
 
-  handleChange = (e) => {
-    e.preventDefault();
+  handleChange = (option) => {
+    console.log(option)
     this.setState({
-      answer: e.target.value
+      answer: option
     })
   }
 
@@ -47,7 +48,7 @@ class PollQuestion extends Component {
       }))
     }
   }
-  
+
   render() {
     if (this.props.question === null) {
       return (<NoMatch />);
@@ -59,34 +60,30 @@ class PollQuestion extends Component {
         <div>
           {this.state.resultsPage
             ?
-            <div>
-              <img src={author.avatarURL} alt={'avatar'} height={'100px'} />
-              <div>
+            <div className='pollQuestion'>
+              <div className='pollQuestion_author_header'>
+                <img src={author.avatarURL} alt={'avatar'} className='pollQuestion_avatar' />
                 <p>{author.name} asks:</p>
-                <h3>Would You Rather?</h3>
               </div>
-              <div>
+              <div className='pollQuestion_body_container'>
+                <h3>Would You Rather?</h3>
                 <Results key={id} id={id} />
               </div>
             </div>
             :
-            <div>
-              <img src={author.avatarURL} alt={'avatar'} height={'100px'} />
-              <div>
+            <div className='pollQuestion'>
+              <div className='pollQuestion_author_header'>
+                <img src={author.avatarURL} alt={'avatar'} className='pollQuestion_avatar' />
                 <p>{author.name} asks:</p>
-                <h3>Would You Rather?</h3>
               </div>
-              <div>
-                <form onSubmit={this.handleSubmit}>
-                  <select defaultValue='none' onChange={this.handleChange}>
-                    <option disabled value='none'>?</option>
-                    <option value='optionOne'>{question.optionOne.text}</option>
-                    <option disabled>OR</option>
-                    <option value='optionTwo'>{question.optionTwo.text}</option>
-                  </select>
-                  <button type='submit' disabled={this.state.answer === ''}>Submit</button>
-                </form>
-
+              <div className='pollQuestion_body_container'>
+                  <h3>Would You Rather</h3>
+                <div className='pollQuestion_body'>
+                  <span onClick={() => { this.handleChange('optionOne') }} className='pollQuestion_optionA'>{question.optionOne.text} ?</span>
+                  <span className='pollQuestion_or'>OR</span>
+                  <span onClick={() => { this.handleChange('optionTwo') }} className='pollQuestion_optionB'>{question.optionTwo.text} ?</span>
+                </div>
+                <button onClick={this.handleSubmit} disabled={this.state.answer === ''}>Submit</button>
               </div>
             </div>}
         </div>);

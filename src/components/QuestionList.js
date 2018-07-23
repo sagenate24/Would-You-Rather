@@ -1,35 +1,46 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../styles/QuestionList.css';
 
 import Question from './Question';
 
 class QuestionList extends Component {
   state = {
-    answered: false
+    answered: false,
+    unansweredBtn: 'question_list_butn',
+    answeredBtn: 'notActive',
   }
 
-  handleChange = (e) => {
-    e.preventDefault()
-    if (e.target.value === 'answered') {
+  handleChange = (info) => {
+    if (info === 'answered') {
       this.setState({
-        answered: true
+        answered: true,
+        answeredBtn: 'question_list_butn2',
+        unansweredBtn: 'notActive2'
+
       });
-    } else if (e.target.value === 'unanswered') {
+    } else if (info === 'unanswered') {
       this.setState({
-        answered: false
+        answered: false,
+        unansweredBtn: 'question_list_butn',
+        answeredBtn: 'notActive'
       });
     }
   }
 
   render() {
     const { questionIds, userawnser } = this.props;
+    const { unansweredBtn, answeredBtn } = this.state;
     return (
-      <div>
-        <h3>Your Questions</h3>
-        <select onChange={this.handleChange}>
-          <option value='unanswered'>Unanswered</option>
-          <option value='answered'>Answered</option>
-        </select>
+      <div className='question_list'>
+        <div className='question_list_header'>
+          <div onClick={() => {
+            this.handleChange('unanswered');
+          }} className={unansweredBtn}>Unanswered Questions</div>
+          <div onClick={() => {
+            this.handleChange('answered');
+          }} className={answeredBtn}>Answered Questions</div>
+        </div>
         <ul>
           {this.state.answered
             ? (

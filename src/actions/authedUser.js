@@ -1,3 +1,4 @@
+import { showLoading, hideLoading } from 'react-redux-loading';
 export const SET_AUTHED_USER = 'SET_AUTHED_USER';
 export const LOG_OUT_USER = 'LOG_OUT_USER';
 
@@ -10,7 +11,12 @@ export function setAuthedUser(id) {
 
 export function handleSetAuthedUser(info) {
   return (dispatch) => {
-    dispatch(setAuthedUser(info));
+    dispatch(showLoading());
+
+    setTimeout(() => {
+      dispatch(setAuthedUser(info));
+      dispatch(hideLoading());
+    }, 1000);
   }
 }
 
@@ -23,6 +29,11 @@ export function logOutUser() {
 
 export function handleLogOutUser() {
   return (dispatch) => {
-    dispatch(logOutUser());
+    dispatch(showLoading());
+
+    setTimeout(() => {
+      dispatch(logOutUser());
+      dispatch(hideLoading());
+    }, 1000);
   }
 }

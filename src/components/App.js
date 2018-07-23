@@ -21,7 +21,7 @@ class App extends Component {
 
   returnProfile() {
     if (this.props && this.props.authedUser) {
-      return ( <Profile /> );
+      return (<Profile />);
     }
   }
 
@@ -31,21 +31,23 @@ class App extends Component {
         <Fragment>
           <LoadingBar />
           <div className='container'>
-          <div className='nav_bar'>
-            <div className='nav_bar_child'>
-              <Nav />
-              {this.returnProfile()}
+            <div className='nav_bar'>
+              <div className='nav_bar_child'>
+                <Nav />
+                {this.returnProfile()}
+              </div>
             </div>
-          </div>
-            {this.props.loading === true
-              ?<Route to='/login' exact component={Login} />
-              :<Switch>
+            <div className='container_body'>
+              {this.props.loading === true
+                ? <Route to='/login' exact component={Login} />
+                : <Switch>
                   <Route path='/' exact component={QuestionList} />
                   <Route path='/questions/:id' component={PollQuestion} />
                   <Route path='/add' component={NewPoll} />
                   <Route path='/leaderboard' component={Leaderboard} />
                   <Route component={NoMatch} />
                 </Switch>}
+            </div>
           </div>
         </Fragment>
       </Router>

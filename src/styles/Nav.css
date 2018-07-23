@@ -10,10 +10,6 @@
   margin: 0 auto;
 }
 
-.nav {
-  
-}
-
 ul {
   padding-left: 50px;
   color: #000;
@@ -31,13 +27,13 @@ nav a {
 }
 a:hover {
   transition: 140ms;
-  color: #fff;
+  color: #2525256d;
 }
 
 .active {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  background-color: #252525a1;
+  background-color: #fff;
   text-decoration: none;
-  color: rgb(233, 230, 230);
+  color: #000;
 }
