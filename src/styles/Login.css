@@ -32,11 +32,21 @@
   cursor: pointer;
 }
 
+.button_disabled {
+  background-color: rgba(109, 109, 109, 0.434);
+  width: 100%;
+  font-size: 13px;
+  padding: 10px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
 .login_button {
   transition: 200ms;
   background-color: rgba(109, 109, 109, 0.838);
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px;
   border-radius: 4px;
   color: #fff;

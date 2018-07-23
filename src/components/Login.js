@@ -7,18 +7,19 @@ import '../styles/Login.css';
 
 class Login extends Component {
   state = {
-    authedUser: ''
+    authedUser: '',
+    buttonClassName: 'button_disabled'
   }
 
   handleChange = (e) => {
-    this.setState({ authedUser: e.target.value });
+    this.setState({ authedUser: e.target.value, buttonClassName: 'login_button' });
   }
 
   handleAuthedUser = (e) => {
     e.preventDefault();
     this.props.dispatch(handleSetAuthedUser(this.state.authedUser));
   }
-
+  
   render() {
     const { userArray, users } = this.props;
     return (
@@ -48,7 +49,7 @@ class Login extends Component {
             type='submit'
             onClick={this.handleAuthedUser}
             disabled={this.state.authedUser === ''}
-            className='login_button'>Sign In</button>
+            className={this.state.buttonClassName}>Sign In</button>
         </form>
       </div>
     );

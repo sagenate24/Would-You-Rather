@@ -18,7 +18,7 @@ class Profile extends Component {
         <Popup
           contentStyle={{ padding: "0px", border: "none", width: '95px', cursor: 'default' }}
           // on='hover'
-          trigger={<p style={{ cursor: 'pointer' }}>Logout</p>}
+          trigger={<p className='logout_trigger'>Logout</p>}
           position='bottom center'
           offset='1'
         >
