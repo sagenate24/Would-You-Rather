@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import '../styles/SharedStyles.css';
 
 class Results extends Component {
+  state = {
+    home: false
+  }
+
   handleWord(number) {
     if (number.length > 1) {
       return `${number.length} out of ${this.props.userArray.length} votes`;
@@ -35,29 +41,40 @@ class Results extends Component {
     });
 
     if (answeredQuestion === authedUser) {
-      return 'you voted for this';
+      return <h5 className='your-vote'>Your Vote</h5>;
     } else { return null; }
   }
 
+  handleRedirect = () => {
+    this.setState({ home: true });
+  }
+
+  goToHome() {
+    if (this.state.home === true) {
+      return <Redirect to='/' />
+    }
+  }
+
   render() {
-    const { question } = this.props;
+    const { optionOne, optionTwo } = this.props.question;
     return (
       <div>
-        <div className='questions'>
-          <h1>RESULTS</h1>
-          <div className='question_one'>
-            <h3>{question.optionOne.text} ?</h3>
+        {this.goToHome()}
+        <div className='container-body' style={{ color: '#fff' }}>
+          <span className='pollQ-option-one' style={{ cursor: 'default' }}>
+            <span>{optionOne.text} ?</span>
             {this.userAwnsered('optionOne')}
-            <p>{this.handleWord(question.optionOne.votes)}</p>
-            <span>{this.handlePercent(question.optionOne.votes)}</span>
-          </div>
-          <br />
-          <div className='question_two'>
-            <h3>{question.optionTwo.text} ?</h3>
+            <p>{this.handleWord(optionOne.votes)}</p>
+            <p>{this.handlePercent(optionOne.votes)}</p>
+          </span>
+          <span className='question-or'>OR</span>
+          <span className='pollQ-option-two' style={{ cursor: 'default' }}>
+            <span>{optionTwo.text} ?</span>
             {this.userAwnsered('optionTwo')}
-            <p>{this.handleWord(question.optionTwo.votes)}</p>
-            <span>{this.handlePercent(question.optionTwo.votes)}</span>
-          </div>
+            <p>{this.handleWord(optionTwo.votes)}</p>
+            <p>{this.handlePercent(optionTwo.votes)}</p>
+          </span>
+          <p style={{ color: '#000', cursor: 'pointer' }} onClick={this.handleRedirect}>more questions?</p>
         </div>
       </div>
     );

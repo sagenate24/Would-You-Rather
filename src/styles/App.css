@@ -13,20 +13,29 @@
   to { transform: rotate(360deg); }
 }
 
-.container {
+.App-container {
   text-align: center;
 }
 
-.container_body {
+.App-body {
   margin-top: 30px;
 }
 
 .nav_bar {
   width: 100%;
+
+}
+
+.nav_bar_child {
+  max-width: 901px;
   margin: 0 auto;
   background-color: rgba(201, 201, 201, 0.468);
   padding-top: 8px;
   border-bottom: .5px solid #252525a1;
+  border-left: .5px solid #252525a1;
+  border-right: .5px solid #252525a1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 /*
 @media only screen and (min-width: 700px) {

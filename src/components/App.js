@@ -30,14 +30,14 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar />
-          <div className='container'>
+          <div className='App-container'>
             <div className='nav_bar'>
               <div className='nav_bar_child'>
                 <Nav />
                 {this.returnProfile()}
               </div>
             </div>
-            <div className='container_body'>
+            <div className='App-body'>
               {this.props.loading === true
                 ? <Route to='/login' exact component={Login} />
                 : <Switch>

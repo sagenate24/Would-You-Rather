@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/QuestionList.css';
+import '../styles/SharedStyles.css';
 
 import Question from './Question';
 
@@ -32,7 +33,7 @@ class QuestionList extends Component {
     const { questionIds, userawnser } = this.props;
     const { unansweredBtn, answeredBtn } = this.state;
     return (
-      <div className='question_list'>
+      <div className='container'>
         <div className='question_list_header'>
           <div onClick={() => {
             this.handleChange('unanswered');

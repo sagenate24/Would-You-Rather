@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleLogOutUser } from '../actions/authedUser';
 import '../styles/Profile.css';
+import '../styles/SharedStyles.css';
 import Popup from 'reactjs-popup';
 
 class Profile extends Component {
@@ -14,7 +15,7 @@ class Profile extends Component {
     return (
       <div className='profile'>
         <p>{users[authedUser].name}</p>
-        <img src={users[authedUser].avatarURL} alt='avatar' className='avatar' />
+        <img src={users[authedUser].avatarURL} alt='avatar' className='avatar-small' />
         <Popup
           contentStyle={{ padding: "0px", border: "none", width: '95px', cursor: 'default' }}
           // on='hover'

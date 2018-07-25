@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { formatPollQuestion } from '../utils/helpers';
 import { Link, withRouter } from 'react-router-dom';
 import '../styles/Question.css';
+import '../styles/SharedStyles.css';
 
 class Question extends Component {
   handleStringLength(str) {
@@ -21,12 +22,11 @@ class Question extends Component {
           <span>{author.name} asks:</span>
         </div>
         <div className='question_body'>
-          <img src={avatar} alt='avatar' className='question_avatar' />
+          <img src={avatar} alt='avatar' className='avatar-large' />
           <div className='question_info'>
             <span>Would You Rather</span>
             <p>{this.handleStringLength(optionOne.text)}</p>
             <Link className='question_link' to={`/questions/${id}`}>View Poll</Link>
-            {/* <button onClick={() => this.handleRedirect}>View Poll</button> */}
           </div>
 
 

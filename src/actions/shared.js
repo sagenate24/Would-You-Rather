@@ -24,13 +24,15 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
     dispatch(showLoading());
     const { authedUser } = getState()
 
-    return saveQuestion({
-      optionOneText,
-      optionTwoText,
-      author: authedUser
-    }).then((optionOneText, optionTwoText) => dispatch(addQuestion(optionOneText, optionTwoText)))
-      .then((results) => dispatch(handleAddUserQuestion(results.question.id)))
-      .then(() => dispatch(hideLoading()));
+    setTimeout(() => {
+      return saveQuestion({
+        optionOneText,
+        optionTwoText,
+        author: authedUser
+      }).then((optionOneText, optionTwoText) => dispatch(addQuestion(optionOneText, optionTwoText)))
+        .then((results) => dispatch(handleAddUserQuestion(results.question.id)))
+        .then(() => dispatch(hideLoading()));
+    }, 300);
   }
 }
 
@@ -40,10 +42,12 @@ export function handleAnswerQuestion(info) {
     dispatch(answerQuestion(info));
     dispatch(addUserVotes(info));
 
-    return saveQuestionAnswer(info).catch((e) => {
-      console.warn('There was an error with handling your answer: ', e);
-      dispatch(answerQuestion(info));
-      alert('There was an error answering that poll. Pleas try again');
-    }).then(() => dispatch(hideLoading()));
+    setTimeout(() => {
+      return saveQuestionAnswer(info).catch((e) => {
+        console.warn('There was an error with handling your answer: ', e);
+        dispatch(answerQuestion(info));
+        alert('There was an error answering that poll. Pleas try again');
+      }).then(() => dispatch(hideLoading()));
+    }, 300);
   }
 }
