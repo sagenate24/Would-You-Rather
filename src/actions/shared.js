@@ -24,15 +24,13 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
     dispatch(showLoading());
     const { authedUser } = getState()
 
-    setTimeout(() => {
-      return saveQuestion({
-        optionOneText,
-        optionTwoText,
-        author: authedUser
-      }).then((optionOneText, optionTwoText) => dispatch(addQuestion(optionOneText, optionTwoText)))
-        .then((results) => dispatch(handleAddUserQuestion(results.question.id)))
-        .then(() => dispatch(hideLoading()));
-    }, 300);
+    return saveQuestion({
+      optionOneText,
+      optionTwoText,
+      author: authedUser
+    }).then((optionOneText, optionTwoText) => dispatch(addQuestion(optionOneText, optionTwoText)))
+      .then((results) => dispatch(handleAddUserQuestion(results.question.id)))
+      .then(() => dispatch(hideLoading()));
   }
 }
 

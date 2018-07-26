@@ -7,23 +7,23 @@ import * as trophie3 from '../Images/trophie3.png';
 
 class Leaderboard extends Component {
   starColor(id) {
-    if (id === this.props.userDetails[0].id) {
+    if (id === this.props.users[0].id) {
       return trophie;
-    } else if (id === this.props.userDetails[1].id) {
+    } else if (id === this.props.users[1].id) {
       return trophie2;
-    } else if (id === this.props.userDetails[2].id) {
+    } else if (id === this.props.users[2].id) {
       return trophie3;
     } else { return null; }
   }
 
   render() {
-    const { userDetails } = this.props;
+    const { users } = this.props;
     return (
       <div className='container'>
         <div className='container-header'>
-          <p style={{ marginLeft: '20px' }}>Leaderboard <span role='img' style={{ paddingLeft: '5px' }} aria-label='Trophie'>🏆</span></p>
+          <p className='leader-text-header'>Leaderboard <span role='img' style={{ paddingLeft: '5px' }} aria-label='Trophie'>🏆</span></p>
         </div>
-        {userDetails.map((user) => {
+        {users.map((user) => {
           return (
             <div key={user.id} className='leaderboard-body'>
               <img className='leader_star' src={this.starColor(user.id)} alt='rank' />
@@ -37,7 +37,7 @@ class Leaderboard extends Component {
               </div>
               <div className='leader-score'>
                 <div className='leader-score-header'><p>Score</p></div>
-                <span>{user.questionsAnswered + user.questionsAsked}</span>
+                <span>{user.total}</span>
               </div>
             </div>
           );
@@ -48,24 +48,17 @@ class Leaderboard extends Component {
 }
 
 function mapStateToProps({ users }) {
-
-  //create a new array of objects for each user created
-  const userDetails = Object.keys(users).map((user) => {
-    const userObject = {
-      id: users[user].id,
-      avatarURL: users[user].avatarURL,
-      name: users[user].name,
-      questionsAsked: users[user].questions.length,
-      questionsAnswered: Object.keys(users[user].answers).length,
-    }
-    const total = userObject.questionsAsked + userObject.questionsAnswered;
-    userObject.total = total;
-    return (userObject);
-
-  }).sort((a, b) => (b.total - a.total));
-
   return {
-    userDetails,
+    users: Object.values(users).map((user) => {
+      const { questions, answers } = user;
+
+      return {
+        ...user,
+        questionsAsked: questions.length,
+        questionsAnswered: Object.keys(answers).length,
+        total: Object.keys(answers).length + questions.length,
+      }
+    }).sort((a, b) => b.total - a.total)
   }
 }
 

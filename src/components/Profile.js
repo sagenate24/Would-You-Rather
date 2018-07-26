@@ -18,8 +18,7 @@ class Profile extends Component {
         <img src={users[authedUser].avatarURL} alt='avatar' className='avatar-small' />
         <Popup
           contentStyle={{ padding: "0px", border: "none", width: '95px', cursor: 'default' }}
-          // on='hover'
-          trigger={<p className='logout_trigger'>Logout</p>}
+          trigger={<p className='logout_trigger' style={{ borderLeft: '1px solid rgba(128, 128, 128, 0.413)' }}>Logout</p>}
           position='bottom center'
           offset='1'
         >

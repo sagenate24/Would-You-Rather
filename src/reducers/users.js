@@ -1,13 +1,13 @@
 import { RECEIVE_USERS, ADD_USER_VOTES, ADD_USER_QUESTION } from '../actions/users';
 
-export default function user (state = {}, action) {
-  switch(action.type) {
-    case RECEIVE_USERS :
+export default function user(state = {}, action) {
+  switch (action.type) {
+    case RECEIVE_USERS:
       return {
         ...state,
-        ...action.users
+        ...action.users,
       }
-    case ADD_USER_VOTES :
+    case ADD_USER_VOTES:
       return {
         ...state,
         [action.authedUser]: {
@@ -18,15 +18,15 @@ export default function user (state = {}, action) {
           }
         }
       }
-    case ADD_USER_QUESTION :
+    case ADD_USER_QUESTION:
       return {
         ...state,
-          [action.authedUser]: {
-            ...state[action.authedUser],
-            questions: state[action.authedUser].questions.concat([action.id])
-          }
+        [action.authedUser]: {
+          ...state[action.authedUser],
+          questions: state[action.authedUser].questions.concat([action.id])
+        }
       }
-    default :
+    default:
       return state;
   }
 }

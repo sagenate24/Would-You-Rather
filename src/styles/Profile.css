@@ -1,9 +1,3 @@
-/* .avatar {
-  height: 25px;
-  margin: 11.5px;
-  border-radius: 25px;
-} */
-
 .profile {
   display: flex;
   flex-direction: row;
@@ -17,9 +11,16 @@
   padding: 10px;
 }
 
-.logout_trigger:hover {
-  transition-duration: 100ms;
+.logout_trigger {
+  transition-duration: 200ms;
   cursor: pointer;
+  color: black;
+  font-size: 12px;
+  padding: 6.5px 0 0 13px;
+}
+
+.logout_trigger:hover {
+  transition-duration: 200ms;
   color: rgba(254, 9, 9, 0.824);
 }
 
@@ -31,7 +32,7 @@
 .button-yes, .button-cancel {
   font-size: 11px;
   border: none;
-  transition: background-color .25s;
+  transition: background-color 200ms;
 }
 
 .button-yes:hover {

@@ -12,7 +12,7 @@ class Results extends Component {
     if (number.length > 1) {
       return `${number.length} out of ${this.props.userArray.length} votes`;
     } else if (number.length === 0) {
-      return 'no one voted this';
+      return 'no votes here';
     } else {
       return `${number.length} out of ${this.props.userArray.length} votes`;
     }
@@ -60,15 +60,16 @@ class Results extends Component {
     return (
       <div>
         {this.goToHome()}
+        <h3 style={{ fontSize: '24px' }}>Results:</h3>
         <div className='container-body' style={{ color: '#fff' }}>
-          <span className='pollQ-option-one' style={{ cursor: 'default' }}>
+          <span className='pollQ-option-one' style={{ cursor: 'default', pointerEvents: 'none' }}>
             <span>{optionOne.text} ?</span>
             {this.userAwnsered('optionOne')}
             <p>{this.handleWord(optionOne.votes)}</p>
             <p>{this.handlePercent(optionOne.votes)}</p>
           </span>
           <span className='question-or'>OR</span>
-          <span className='pollQ-option-two' style={{ cursor: 'default' }}>
+          <span className='pollQ-option-two' style={{ cursor: 'default', pointerEvents: 'none' }}>
             <span>{optionTwo.text} ?</span>
             {this.userAwnsered('optionTwo')}
             <p>{this.handleWord(optionTwo.votes)}</p>

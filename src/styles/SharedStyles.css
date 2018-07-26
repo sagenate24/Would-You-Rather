@@ -1,5 +1,4 @@
 .container {
-  /* width: 75%; */
   max-width: 649px;
   margin: 0 auto;
   border: 1px solid #dad7d7;
@@ -19,10 +18,10 @@
 }
 
 .container-body {
-    margin: 0 auto;
-    padding: 21px;
-    display: flex;
-    flex-direction: column;
+  margin: 0 auto;
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
 }
 
 .pollQ-option-one, .pollQ-option-two {
@@ -33,11 +32,18 @@
   cursor: pointer;
 }
 
+.pollQ-option-one:hover, .pollQ-option-two:hover {
+  transition-duration: 200ms;
+  padding: 44px;
+}
+
 .pollQ-option-one {
+  transition-duration: 200ms;
   background: linear-gradient(to bottom right, red, rgba(245, 122, 45, 0.872));
 }
 
 .pollQ-option-two {
+  transition-duration: 200ms;
   background: linear-gradient(to bottom right, rgb(7, 83, 215), rgb(129, 173, 249));
 }
 
@@ -57,8 +63,8 @@
 
 .button {
   width: 51%;
-  transition: 200ms;
-  background-color: rgba(109, 109, 109, 0.838);
+  transition-duration: 200ms;
+  background-color: rgba(255, 0, 0, 0.728);
   border: 1px solid #26262641;
   font-size: 15px;
   padding: 10px;
@@ -70,31 +76,27 @@
 }
 
 .button:hover {
-  transition: 200ms;
-  font-size: 18px;
+  transition-duration: 200ms;
+  transform: scale(1);
+  font-size: 17px;
   border: 1px solid #1c1c1c;
-  background-color: rgba(254, 39, 39, 0.947);
+  background-color: red;
 }
 
 .avatar-large {
   height: 99px;
-  margin: 10px;
-  border-radius: 50px;
-}
-
-.avatar-large-ish {
-
+  border-radius: 90px;
 }
 
 .avatar-medium {
   height: 39px;
-  border-radius: 25px;
+  border-radius: 39px;
   padding: 10px;
 }
 
 .avatar-small {
   height: 25px;
-  padding: 10px;
+  padding: 13px;
   border-radius: 25px;
 }
 
@@ -105,22 +107,24 @@
 .check-mark {
   height: 39px;
   float: right;
-  margin-top: -40px;
+  margin-top: -48px;
   margin-right: -40px;
+  background-color: #96969633;
+  border-radius: 40px;
 }
 
 .your-vote {
-    text-align: center;
-    font-size: 12px;
-    padding: 9px;
-    margin: 0 auto;
-    background-color: rgba(18, 16, 16, 0.851);
-    border-radius: 100px;
-    height: 30px;
-    width: 30px;
-    float: right;
-    margin-top: -60px;
-    margin-right: -60px;
+  text-align: center;
+  font-size: 12px;
+  padding: 9px;
+  margin: 0 auto;
+  background-color: rgba(18, 16, 16, 0.851);
+  border-radius: 100px;
+  height: 30px;
+  width: 30px;
+  float: right;
+  margin-top: -60px;
+  margin-right: -60px;
 }
 
 span.question-or {
@@ -142,14 +146,20 @@ span.question-or {
   margin: 10px;
 }
 
+.leader-text-header {
+  margin: 0 auto;
+  font-size: 32px;
+  padding: 7px;
+  color: rgb(60, 49, 49);
+}
+
 .leaderboard-body {
-  width: 85%;
+  max-width: 95%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  cursor: default;
-  padding: 17px;
-  border-bottom: 1px solid #dad7d75b;
+  padding: 17px 0 17px 0;
+  border-bottom: 1px solid #24232315;
 }
 
 div.leaderboard-body:last-child {
@@ -159,12 +169,12 @@ div.leaderboard-body:last-child {
 .leader-info {
   margin: auto;
   padding: 0 17px 0 17px;
-  border-left: 1px solid #dad7d7;
-  border-right: 1px solid #dad7d7;
+  border-left: 1px solid #dad7d77a;
+  border-right: 1px solid #dad7d77a;
   text-align: left;
 }
 
-.leader-info p > span {
+.leader-info p>span {
   padding-left: 39px;
   float: right;
 }
@@ -190,12 +200,41 @@ div.leaderboard-body:last-child {
 }
 
 .wyr-banner {
-  max-height: 100px;
-  transition-duration: 2s;
+  max-height: 80px;
 }
-.wyr-banner:hover {
-  transition-duration: 2s;
-    -ms-transform: rotate(-5deg); /* IE 9 */
-    -webkit-transform: rotate(-5deg); /* Safari */
-    transform: rotate(-5deg);
+
+.wyr-initial {
+  max-height: 0;
+  visibility: hidden;
+}
+
+.wyr-banner-transition {
+  transition-delay: 300ms;
+  transition-duration: 500ms;
+  -moz-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  -webkit-transition-duration: 500ms;
+  max-height: 90px;
+}
+
+.question-list-btn {
+  width: 50%;
+  font-size: 16px;
+}
+
+.question-list-btn-non-active {
+  transition-duration: 200ms;
+  width: 50%;
+  font-size: 16px;
+  color: rgba(36, 36, 36, 0.201);
+  cursor: pointer;
+}
+
+.question-list-btn-non-active:hover {
+  transition-duration: 200ms;
+  color: blue;
+}
+
+.q-list-ul {
+  padding: 0;
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../styles/QuestionList.css';
 import '../styles/SharedStyles.css';
 
 import Question from './Question';
@@ -8,41 +7,32 @@ import Question from './Question';
 class QuestionList extends Component {
   state = {
     answered: false,
-    unansweredBtn: 'question_list_butn',
-    answeredBtn: 'notActive',
   }
 
   handleChange = (info) => {
     if (info === 'answered') {
-      this.setState({
-        answered: true,
-        answeredBtn: 'question_list_butn2',
-        unansweredBtn: 'notActive2'
-
-      });
+      this.setState({ answered: true });
     } else if (info === 'unanswered') {
-      this.setState({
-        answered: false,
-        unansweredBtn: 'question_list_butn',
-        answeredBtn: 'notActive'
-      });
+      this.setState({ answered: false });
     }
   }
 
   render() {
     const { questionIds, userawnser } = this.props;
-    const { unansweredBtn, answeredBtn } = this.state;
+    const { answered } = this.state;
     return (
       <div className='container'>
-        <div className='question_list_header'>
-          <div onClick={() => {
-            this.handleChange('unanswered');
-          }} className={unansweredBtn}>Unanswered Questions</div>
-          <div onClick={() => {
+        <div className='container-header'>
+          <p
+            onClick={() => { this.handleChange('unanswered'); }}
+            className={answered ? 'question-list-btn-non-active' : 'question-list-btn'}
+            style={{ borderRight: '1px solid #dad7d7' }}>Unanswered Questions</p>
+
+          <p onClick={() => {
             this.handleChange('answered');
-          }} className={answeredBtn}>Answered Questions</div>
+          }} className={answered ? 'question-list-btn' : 'question-list-btn-non-active'}>Answered Questions</p>
         </div>
-        <ul>
+        <ul className='q-list-ul'>
           {this.state.answered
             ? (
               questionIds.map((id) => {

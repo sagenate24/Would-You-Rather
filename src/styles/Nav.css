@@ -1,37 +1,26 @@
-.nav {
-  max-width: 701px;
-}
-
 .nav ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  text-decoration: none;
   color: #000;
   font-size: 16px;
-  padding: 10px;
-  /* width: 80%; */
+  padding: 10px 10px 10px 50px;
   margin: 0 auto;
 }
-
-ul {
-  padding-left: 50px;
-  color: #000;
-}
-
-li {
+nav li {
   padding-right: 30px;
 }
 
 nav a {
+  transition-duration: 200ms;
   text-decoration: none;
   color: #252525;
-  padding: 10.5px;
+  padding: 5px 6px 10.5px 6px;
   cursor: pointer
 }
-a:hover {
-  transition: 140ms;
-  color: #2525256d;
+nav a:hover {
+  transition-duration: 200ms;
+  color: blue;
 }
 
 .active {

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from '../logo.svg';
-import '../styles/App.css';
 import { handleSetAuthedUser } from '../actions/authedUser';
 import '../styles/Login.css';
+import '../styles/App.css';
+import '../styles/SharedStyles.css';
+import * as wyrBanner from '../Images/wyrBanner.png';
 
 class Login extends Component {
   state = {
@@ -23,9 +25,9 @@ class Login extends Component {
   render() {
     const { userArray, users } = this.props;
     return (
-      <div className='login_container'>
-        <div className='login_header'>
-          <span><h1>Welcome to my Would You Rather App!</h1></span>
+      <div className='container'>
+        <div className='login-header'>
+          <span><h1>Welcome to my <img src={wyrBanner} className='wyr-banner-login' alt='wyr' /> app!</h1></span>
           <p>Please sign in to continue</p>
         </div>
         <div className='login_description'>

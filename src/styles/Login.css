@@ -1,20 +1,16 @@
-.login_container {
-  width: 80%;
-  max-width: 590px;
-  margin: 0 auto;
-  border: 1px solid #dad7d7;
-  border-radius: 2px;
-  cursor: pointer;
+.wyr-banner-login {
+  height: 41px;
+  margin-bottom: -12px;
 }
 
-.login_header {
-  background-color: #dad7d75a;
+.login-header {
+  background-color: rgba(232, 229, 229, 0.625);
   border-bottom: 1px solid #dad7d7;
   margin-bottom: 30px;
   padding-top: 1px;
 }
 
-.login_header h1 {
+.login-header h1 {
   font-size: 24px;
 }
 
@@ -43,8 +39,8 @@
 }
 
 .login_button {
-  transition: 200ms;
-  background-color: rgba(109, 109, 109, 0.838);
+  transition-duration: 200ms;
+  background-color: rgba(255, 0, 0, 0.728);
   width: 100%;
   font-size: 16px;
   padding: 10px;
@@ -54,6 +50,6 @@
 }
 
 .login_button:hover {
-  transition: 150ms;
-  background-color: rgba(254, 48, 48, 0.947);
+  transition-duration: 200ms;
+  background-color: red;
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAnswerQuestion } from '../actions/shared';
-import '../styles/PollQuestion.css';
 import '../styles/SharedStyles.css';
 import * as CheckMark from '../Images/checkMark.png';
 import * as wyrBanner from '../Images/wyrBanner.png';
@@ -12,10 +11,14 @@ import NoMatch from './NoMatch';
 class PollQuestion extends Component {
   state = {
     answer: '',
+    wyrClassName: 'wyr-initial'
   }
 
   componentDidMount() {
     this.handleInitialRender();
+    setTimeout(() => {
+      this.setState({ wyrClassName: 'wyr-banner-transition' });
+    }, 1)
   }
 
   handleChange = (option) => {
@@ -60,7 +63,7 @@ class PollQuestion extends Component {
     }
     else {
       const { author, question, id, loadingBar } = this.props;
-      const { answer } = this.state;
+      const { answer, wyrClassName } = this.state;
 
       return (
         <div className='container'>
@@ -71,12 +74,11 @@ class PollQuestion extends Component {
           {this.state.resultsPage && loadingBar.default === 0
             ?
             <div>
-              <h3>Results:</h3>
               <Results key={id} id={id} />
             </div>
             :
             <div>
-              <img src={wyrBanner} alt='wyrbanner' className='wyr-banner'/>
+              <img src={wyrBanner} alt='wyrbanner' className={wyrClassName} />
               <div className='container-body' style={{ color: '#fff' }}>
                 <span
                   onClick={() => { this.handleChange('optionOne') }}

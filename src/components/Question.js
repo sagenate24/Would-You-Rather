@@ -18,7 +18,7 @@ class Question extends Component {
     const { author, avatar, id, optionOne } = this.props.question;
     return (
       <div className='question'>
-        <div className='question_header'>
+        <div className='question-header'>
           <span>{author.name} asks:</span>
         </div>
         <div className='question_body'>
@@ -28,8 +28,6 @@ class Question extends Component {
             <p>{this.handleStringLength(optionOne.text)}</p>
             <Link className='question_link' to={`/questions/${id}`}>View Poll</Link>
           </div>
-
-
         </div>
       </div>
     );

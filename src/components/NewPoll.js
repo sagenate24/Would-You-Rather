@@ -57,7 +57,7 @@ class NewPoll extends Component {
           <p>{users[authedUser].name} asks:</p>
         </div>
         <p style={{ textAlign: 'left', paddingLeft: '10px', color: 'rgba(0, 0, 0, 0.31)' }}>Complete the question:</p>
-        <img src={wyrBanner} alt='wyrbanner' className='wyr-banner'/>
+        <img src={wyrBanner} alt='wyrbanner' className='wyr-banner' />
         <form onSubmit={this.handleSubmit} className='container-body'>
           <textarea
             placeholder='option one'

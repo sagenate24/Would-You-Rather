@@ -15,6 +15,7 @@
 
 .App-container {
   text-align: center;
+  cursor: default;
 }
 
 .App-body {
@@ -27,20 +28,26 @@
 }
 
 .nav_bar_child {
-  max-width: 901px;
+  max-width: 999px;
   margin: 0 auto;
-  background-color: rgba(201, 201, 201, 0.468);
-  padding-top: 8px;
-  border-bottom: .5px solid #252525a1;
-  border-left: .5px solid #252525a1;
-  border-right: .5px solid #252525a1;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-/*
-@media only screen and (min-width: 700px) {
+  background-color: rgba(232, 229, 229, 0.625);
 
-} */
+  border-bottom: .5px solid #252525a1;
+}
+
+
+@media only screen and (min-width: 999px) {
+  .nav_bar_child {
+    max-width: 999px;
+    margin: 0 auto;
+    background-color: rgba(232, 229, 229, 0.625);
+    border-bottom: .5px solid #252525a1;
+    border-left: .5px solid #252525a1;
+    border-right: .5px solid #252525a1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
 
 li {
   text-decoration: none;
