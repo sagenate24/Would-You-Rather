@@ -16,6 +16,7 @@ class Question extends Component {
 
   render() {
     const { author, avatar, id, optionOne } = this.props.question;
+
     return (
       <div className='question'>
         <div className='question-header'>
@@ -26,7 +27,7 @@ class Question extends Component {
           <div className='question_info'>
             <span>Would You Rather</span>
             <p>{this.handleStringLength(optionOne.text)}</p>
-            <Link className='question_link' to={`/questions/${id}`}>View Poll</Link>
+            <Link className='question_link' to={`/questions/${id}`}>{this.props.btnText}</Link>
           </div>
         </div>
       </div>

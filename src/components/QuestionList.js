@@ -20,17 +20,19 @@ class QuestionList extends Component {
   render() {
     const { questionIds, userawnser } = this.props;
     const { answered } = this.state;
+
     return (
       <div className='container'>
         <div className='container-header'>
           <p
             onClick={() => { this.handleChange('unanswered'); }}
             className={answered ? 'question-list-btn-non-active' : 'question-list-btn'}
-            style={{ borderRight: '1px solid #dad7d7' }}>Unanswered Questions</p>
-
-          <p onClick={() => {
-            this.handleChange('answered');
-          }} className={answered ? 'question-list-btn' : 'question-list-btn-non-active'}>Answered Questions</p>
+            style={{ borderRight: '1px solid #dad7d7' }}
+          >Unanswered Questions</p>
+          <p
+            onClick={() => { this.handleChange('answered'); }}
+            className={answered ? 'question-list-btn' : 'question-list-btn-non-active'}
+          >Answered Questions</p>
         </div>
         <ul className='q-list-ul'>
           {this.state.answered
@@ -46,30 +48,39 @@ class QuestionList extends Component {
                 if (answeredID === id) {
                   return (
                     <li key={id}>
-                      <Question id={id} />
+                      <Question id={id} btnText='View Results' />
                     </li>
                   );
                 }
                 return null;
               })
             ) : (
-              questionIds.map((id) => {
-                let unansweredID = userawnser.find((answer) => {
-                  if (answer === id) {
-                    return id;
+              questionIds.length === userawnser.length
+                ?
+                <div className='no-more-questions'>
+                  <h1>you have answered all questions</h1>
+                  <p>check your status on the leaderboard and/or create new questions</p>
+                  <p>Thank you for playing!</p>
+                </div>
+                :
+                questionIds.map((id) => {
+                  let unansweredID = userawnser.find((answer) => {
+                    if (answer === id) {
+                      return id;
+                    } else {
+                      return null;
+                    }
+                  });
+                  if (unansweredID !== id) {
+                    return (
+                      <li key={id}>
+                        <Question id={id} btnText='View Poll' />
+                      </li>
+                    );
                   }
                   return null;
-                });
-                if (unansweredID !== id) {
-                  return (
-                    <li key={id}>
-                      <Question id={id} />
-                    </li>
-                  );
                 }
-                return null;
-              }
-              ))}
+                ))}
         </ul>
       </div>
     );

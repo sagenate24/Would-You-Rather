@@ -24,14 +24,13 @@
 
 .nav_bar {
   width: 100%;
-
 }
 
 .nav_bar_child {
   max-width: 999px;
   margin: 0 auto;
   background-color: rgba(232, 229, 229, 0.625);
-
+  padding-top: 4px;
   border-bottom: .5px solid #252525a1;
 }
 

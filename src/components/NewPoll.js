@@ -26,7 +26,6 @@ class NewPoll extends Component {
     }));
   }
 
-  // handleSubmit adds the question to the store.
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -34,7 +33,6 @@ class NewPoll extends Component {
     const { dispatch, id } = this.props;
     dispatch(handleAddQuestion(optionOneText, optionTwoText));
 
-    // resets textfield to an empty string.
     this.setState(() => ({
       toHome: id ? false : true,
     }));
@@ -88,6 +86,7 @@ class NewPoll extends Component {
             type='submit'
             disabled={optionOneText === '' || optionTwoText === ''}
             className={optionOneText === '' || optionTwoText === '' ? 'button-not-active' : 'button'}
+
           >Submit</button>
         </form>
       </div>

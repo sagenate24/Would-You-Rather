@@ -10,11 +10,10 @@ import * as wyrBanner from '../Images/wyrBanner.png';
 class Login extends Component {
   state = {
     authedUser: '',
-    buttonClassName: 'button_disabled'
   }
 
   handleChange = (e) => {
-    this.setState({ authedUser: e.target.value, buttonClassName: 'login_button' });
+    this.setState({ authedUser: e.target.value });
   }
 
   handleAuthedUser = (e) => {
@@ -24,25 +23,26 @@ class Login extends Component {
 
   render() {
     const { userArray, users } = this.props;
+
     return (
       <div className='container'>
         <div className='login-header'>
           <span><h1>Welcome to my <img src={wyrBanner} className='wyr-banner-login' alt='wyr' /> app!</h1></span>
           <p>Please sign in to continue</p>
         </div>
-        <div className='login_description'>
+        <div className='login-description'>
           <img src={logo} className='App-logo' alt='logo' />
           <h3>Sign in</h3>
         </div>
-        <form className='login_form'>
-          <select defaultValue='chooseAvatar' className='login_select' onChange={this.handleChange}>
-            <option value='chooseAvatar' className='login_option' disabled>Choose Avatar</option>
+        <form className='login-form'>
+          <select defaultValue='chooseAvatar' className='login-select' onChange={this.handleChange}>
+            <option value='chooseAvatar' className='login-option' disabled>Choose Avatar</option>
             {userArray.map((user) => {
               return (
                 <option
                   key={users[user].id}
                   value={users[user].id}
-                  className='login_option'
+                  className='login-option'
                 >{users[user].name}</option>
               );
             })}
@@ -51,7 +51,7 @@ class Login extends Component {
             type='submit'
             onClick={this.handleAuthedUser}
             disabled={this.state.authedUser === ''}
-            className={this.state.buttonClassName}>Sign In</button>
+            className='login-button'>Sign In</button>
         </form>
       </div>
     );
@@ -61,7 +61,7 @@ class Login extends Component {
 function mapStateToProps({ users }) {
   return {
     userArray: Object.keys(users),
-    users
+    users,
   }
 }
 

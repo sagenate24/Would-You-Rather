@@ -4,33 +4,32 @@
   justify-content: flex-start;
   padding-right: 30px;
   float: right;
-  margin-top: -44px
+  margin-top: -42px
 }
 
 .profile li {
   padding: 10px;
+  font-size: 12px;
 }
 
-.logout_trigger {
+.logout-trigger {
   transition-duration: 200ms;
   cursor: pointer;
-  color: black;
-  font-size: 12px;
-  padding: 6.5px 0 0 13px;
+  color: rgba(0, 0, 0, 0.495);
+  font-size: 16px;
 }
 
-.logout_trigger:hover {
+.logout-trigger:hover {
   transition-duration: 200ms;
   color: rgba(254, 9, 9, 0.824);
 }
 
-.popUp-logout_p {
-  color: '#000';
-  font-size: '8px';
+p.profile-name{
+  font-size: 16px;
 }
 
 .button-yes, .button-cancel {
-  font-size: 11px;
+  font-size: 10px;
   border: none;
   transition: background-color 200ms;
 }
@@ -43,4 +42,33 @@
 .button-cancel:hover {
   color: rgba(204, 25, 25, 0.824);
   cursor: pointer;
+}
+
+.avatar-small-profile {
+  height: 25px;
+  padding: 13px;
+  border-radius: 25px;
+}
+
+
+@media only screen and (max-width: 700px) {
+  .profile {
+    padding-right: 10px;
+  }
+  .avatar-small-profile {
+    height: 25px;
+    padding: 5px;
+    margin-top: 8px;
+    border-radius: 25px;
+  }
+  p.profile-name{
+    color: rgba(0, 0, 0, 0.495);
+    font-size: 11px;
+    margin-top: 19.5px;
+
+  }
+  .logout-trigger {
+    font-size: 11px;
+    padding: 8.5px 0 0 0;
+  }
 }

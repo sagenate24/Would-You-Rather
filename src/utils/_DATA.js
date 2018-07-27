@@ -9,11 +9,11 @@ let users = {
     avatarURL: ClaireUrl,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
-      "6ni6ok3ym7mf1p33lnez": 'optionOne',
       "am8ehyc8byjqgar0jgpub9": 'optionTwo',
-      "loxhs1bqm25b708cmbf3g": 'optionTwo'
+      "loxhs1bqm25b708cmbf3g": 'optionOne',
+      "3r18vdn9ilggpszlfeal86": 'optionTwo',
     },
-    questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
+    questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9', '2ezoza3lsan24iezmucfat']
   },
   nathan: {
     id: 'nathan',
@@ -21,9 +21,11 @@ let users = {
     avatarURL: NathanUrl,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
-      "xj352vofupe1dqz9emx13r": 'optionTwo',
+      "xj352vofupe1dqz9emx13r": 'optionOne',
+      "zx6ug2my22i4jtmzi64ld9": 'optionTwo',
+      "3r18vdn9ilggpszlfeal86": 'optionOne',
     },
-    questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
+    questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do', 'zx6ug2my22i4jtmzi64ld9', '3r18vdn9ilggpszlfeal86'],
   },
   johndoe: {
     id: 'johndoe',
@@ -31,7 +33,8 @@ let users = {
     avatarURL: JohnDoe,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionTwo',
-      "vthrdm985a262al8qx3do": 'optionOne'
+      "vthrdm985a262al8qx3do": 'optionTwo',
+      "6ni6ok3ym7mf1p33lnez": 'optionTwo',
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
   },
@@ -57,11 +60,11 @@ let questions = {
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
-      text: 'become a superhero',
+      text: 'have 500 tarantulas crawling in your house',
     },
     optionTwo: {
-      votes: ['johndoe', 'claire'],
-      text: 'become a supervillian'
+      votes: ['johndoe'],
+      text: '1000 crickets jumping around your room'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {
@@ -70,11 +73,11 @@ let questions = {
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
-      text: 'be telekinetic',
+      text: 'have to sneeze but not be able to',
     },
     optionTwo: {
       votes: ['claire'],
-      text: 'be telepathic'
+      text: 'have something stuck in your eye for a year'
     }
   },
   "loxhs1bqm25b708cmbf3g": {
@@ -82,11 +85,11 @@ let questions = {
     author: 'nathan',
     timestamp: 1482579767190,
     optionOne: {
-      votes: [],
+      votes: ['claire'],
       text: 'be a front-end developer',
     },
     optionTwo: {
-      votes: ['claire'],
+      votes: [],
       text: 'be a back-end developer'
     }
   },
@@ -108,14 +111,53 @@ let questions = {
     author: 'johndoe',
     timestamp: 1493579767190,
     optionOne: {
-      votes: ['johndoe'],
+      votes: ['nathan'],
       text: 'write JavaScript',
     },
     optionTwo: {
-      votes: ['nathan'],
+      votes: ['johndoe'],
       text: 'write Swift'
     }
   },
+  "zx6ug2my22i4jtmzi64ld9": {
+    id: 'zx6ug2my22i4jtmzi64ld9',
+    author: 'nathan',
+    timestamp: 1488579767199,
+    optionOne: {
+      votes: [],
+      text: 'have your face 2 inches away from a black widow spider for 10 minutes',
+    },
+    optionTwo: {
+      votes: ['nathan'],
+      text: 'slap a king cobra in the face 3 times'
+    }
+  },
+  "3r18vdn9ilggpszlfeal86": {
+    id: '3r18vdn9ilggpszlfeal86',
+    author: 'nathan',
+    timestamp: 1488579767195,
+    optionOne: {
+      votes: ['nathan'],
+      text: 'be the dog with a long stick in his mouth trying to walk thru a narrow door',
+    },
+    optionTwo: {
+      votes: ['claire'],
+      text: 'the cat that jumps for a ledge and falls miserably short'
+    }
+  },
+  "2ezoza3lsan24iezmucfat": {
+    id: '2ezoza3lsan24iezmucfat',
+    author: 'claire',
+    timestamp: 1488579767193,
+    optionOne: {
+      votes: [],
+      text: 'live one life that lasts 1,000 years',
+    },
+    optionTwo: {
+      votes: [],
+      text: 'live 10 lives that last 100 years each'
+    }
+  }
 }
 
 function generateUID () {

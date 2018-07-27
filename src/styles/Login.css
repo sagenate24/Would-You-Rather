@@ -7,18 +7,18 @@
   background-color: rgba(232, 229, 229, 0.625);
   border-bottom: 1px solid #dad7d7;
   margin-bottom: 30px;
-  padding-top: 1px;
+  padding: 5px;
 }
 
 .login-header h1 {
   font-size: 24px;
 }
 
-.login_form {
+.login-form {
   padding: 20px;
 }
 
-.login_select {
+.login-select {
   width: 100%;
   height: 40px;
   font-size: 16px;
@@ -28,7 +28,7 @@
   cursor: pointer;
 }
 
-.button_disabled {
+.button-disabled {
   background-color: rgba(109, 109, 109, 0.434);
   width: 100%;
   font-size: 13px;
@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 
-.login_button {
+.login-button {
   transition-duration: 200ms;
   background-color: rgba(255, 0, 0, 0.728);
   width: 100%;
@@ -49,7 +49,7 @@
   cursor: pointer;
 }
 
-.login_button:hover {
+.login-button:hover {
   transition-duration: 200ms;
   background-color: red;
 }

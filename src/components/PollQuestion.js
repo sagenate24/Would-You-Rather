@@ -60,8 +60,7 @@ class PollQuestion extends Component {
   render() {
     if (this.props.question === null) {
       return (<NoMatch />);
-    }
-    else {
+    } else {
       const { author, question, id, loadingBar } = this.props;
       const { answer, wyrClassName } = this.state;
 
@@ -103,11 +102,10 @@ class PollQuestion extends Component {
                   </span>
                 <button
                   onClick={this.handleSubmit}
-                  className={answer.length > 0 ? 'button' : 'not-active'}
+                  className={answer.length > 0 ? 'button' : 'button-not-active'}
                   disabled={answer === ''}
                 >Submit</button>
               </div>
-
             </div>}
         </div>
       );
@@ -116,7 +114,6 @@ class PollQuestion extends Component {
 }
 
 function mapStateToProps({ authedUser, questions, users, loadingBar }, props) {
-
   const { id } = props.match.params;
   const question = questions[id];
   const userAnswers = users[authedUser].answers;

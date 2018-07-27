@@ -51,31 +51,32 @@ class Results extends Component {
 
   goToHome() {
     if (this.state.home === true) {
-      return <Redirect to='/' />
+      return <Redirect to='/' />;
     }
   }
 
   render() {
     const { optionOne, optionTwo } = this.props.question;
+
     return (
       <div>
         {this.goToHome()}
         <h3 style={{ fontSize: '24px' }}>Results:</h3>
         <div className='container-body' style={{ color: '#fff' }}>
           <span className='pollQ-option-one' style={{ cursor: 'default', pointerEvents: 'none' }}>
-            <span>{optionOne.text} ?</span>
             {this.userAwnsered('optionOne')}
+            <span>{optionOne.text} ?</span>
             <p>{this.handleWord(optionOne.votes)}</p>
             <p>{this.handlePercent(optionOne.votes)}</p>
           </span>
           <span className='question-or'>OR</span>
           <span className='pollQ-option-two' style={{ cursor: 'default', pointerEvents: 'none' }}>
-            <span>{optionTwo.text} ?</span>
             {this.userAwnsered('optionTwo')}
+            <span>{optionTwo.text} ?</span>
             <p>{this.handleWord(optionTwo.votes)}</p>
             <p>{this.handlePercent(optionTwo.votes)}</p>
           </span>
-          <p style={{ color: '#000', cursor: 'pointer' }} onClick={this.handleRedirect}>more questions?</p>
+          <button className='button' onClick={this.handleRedirect}>more questions?</button>
         </div>
       </div>
     );

@@ -6,7 +6,7 @@ import * as trophie2 from '../Images/trophie2.png';
 import * as trophie3 from '../Images/trophie3.png';
 
 class Leaderboard extends Component {
-  starColor(id) {
+  chooseTrophey(id) {
     if (id === this.props.users[0].id) {
       return trophie;
     } else if (id === this.props.users[1].id) {
@@ -18,17 +18,18 @@ class Leaderboard extends Component {
 
   render() {
     const { users } = this.props;
+
     return (
-      <div className='container'>
+      <div className='leader-container'>
         <div className='container-header'>
           <p className='leader-text-header'>Leaderboard <span role='img' style={{ paddingLeft: '5px' }} aria-label='Trophie'>🏆</span></p>
         </div>
         {users.map((user) => {
           return (
             <div key={user.id} className='leaderboard-body'>
-              <img className='leader_star' src={this.starColor(user.id)} alt='rank' />
+              <img className='leader-trophey' src={this.chooseTrophey(user.id)} alt='rank' />
               <div className='leader-avatar'>
-                <img src={user.avatarURL} alt='avatar' className='avatar-large' />
+                <img src={user.avatarURL} alt='avatar' className='avatar-leaderboard' />
               </div>
               <div className='leader-info'>
                 <h3>{user.name}</h3>
@@ -37,7 +38,7 @@ class Leaderboard extends Component {
               </div>
               <div className='leader-score'>
                 <div className='leader-score-header'><p>Score</p></div>
-                <span>{user.total}</span>
+                <span className='leader-total-number'>{user.total}</span>
               </div>
             </div>
           );

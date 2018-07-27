@@ -1,6 +1,6 @@
 .question {
   margin: 0 auto;
-  max-width: 577px;
+  width: 94%;
   border: 1px solid #dad7d7;
   border-radius: 3px;
   cursor: default;
@@ -55,6 +55,7 @@
   transition-duration: 200ms;
   background-color: red;
   font-size: 14px;
-  padding: 6px;
+  transform: scale(1.1);
+  padding: 5px;
   color: white;
 }
