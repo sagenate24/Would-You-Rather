@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
+import FadeIn from 'react-fade-in';
 import '../styles/App.css';
 
 import PollQuestion from './PollQuestion';
@@ -31,8 +32,8 @@ class App extends Component {
         <Fragment>
           <LoadingBar />
           <div className='App-container'>
-            <div className='nav_bar'>
-              <div className='nav_bar_child'>
+            <div className='nav-bar'>
+              <div className='nav-bar-child'>
                 <Nav />
                 {this.returnProfile()}
               </div>

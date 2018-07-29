@@ -22,11 +22,11 @@
   margin-top: 30px;
 }
 
-.nav_bar {
+.nav-bar {
   width: 100%;
 }
 
-.nav_bar_child {
+.nav-bar-child {
   max-width: 999px;
   margin: 0 auto;
   background-color: rgba(232, 229, 229, 0.625);
@@ -36,7 +36,7 @@
 
 
 @media only screen and (min-width: 999px) {
-  .nav_bar_child {
+  .nav-bar-child {
     max-width: 999px;
     margin: 0 auto;
     background-color: rgba(232, 229, 229, 0.625);

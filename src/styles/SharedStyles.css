@@ -159,7 +159,7 @@ span.question-or {
 
 .leader-container {
   width: 96%;
-  max-width: 551px;
+  max-width: 550px;
   margin: 0 auto;
   border: 1px solid #dad7d7;
   color: black;
@@ -213,10 +213,10 @@ div.leaderboard-body:last-child {
 }
 .leader-score-header {
   background-color: rgba(232, 229, 229, 0.625);
-  padding: 1px 27px 1px 26px;
+  padding: 1px 26px 1px 26px;
   border-bottom: 1px solid #dad7d7;
   margin-bottom: 26px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 100;
 }
 .leader-total-number {
@@ -239,17 +239,16 @@ div.leaderboard-body:last-child {
 
 .wyr-banner-transition {
   transform: scale(1);
-  transition-delay: 300ms;
-  transition-duration: 700ms;
-  -moz-transition-duration: 700ms;
-  -o-transition-duration: 700ms;
-  -webkit-transition-duration: 700ms;
+  transition-delay: 400ms;
+  transition-duration: 400ms;
   max-height: 90px;
 }
 
 .question-list-btn {
   width: 50%;
   font-size: 16px;
+  cursor: pointer;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.077);
 }
 
 .question-list-btn-non-active {
@@ -262,7 +261,7 @@ div.leaderboard-body:last-child {
 
 .question-list-btn-non-active:hover {
   transition-duration: 200ms;
-  color: blue;
+  color: rgb(0, 94, 255);
 }
 
 .q-list-ul {
@@ -274,6 +273,24 @@ div.leaderboard-body:last-child {
 }
 .no-more-questions > p {
   padding: 10px;
+}
+
+.close-poll {
+  display: block;
+  width: 40px;
+  height: 43px;
+  margin-left: 10px;
+  background: white;
+  background-image: url('../Images/arrow-back.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 26px;
+  border-radius: 50%;
+  font-size: 0;
+}
+.close-poll:hover {
+  transition-duration: 200ms;
+  background-color: #000;
 }
 
 @media only screen and (max-width: 639px) {

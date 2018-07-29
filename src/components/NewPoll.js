@@ -4,6 +4,7 @@ import { handleAddQuestion } from '../actions/shared';
 import { Redirect } from 'react-router-dom';
 import '../styles/SharedStyles.css';
 import * as wyrBanner from '../Images/wyrBanner.png';
+import FadeIn from 'react-fade-in';
 
 class NewPoll extends Component {
   state = {
@@ -49,47 +50,49 @@ class NewPoll extends Component {
     }
 
     return (
-      <div className='container'>
-        <div className='container-header'>
-          <img src={users[authedUser].avatarURL} alt={'avatar'} className='avatar-medium' />
-          <p>{users[authedUser].name} asks:</p>
-        </div>
-        <p style={{ textAlign: 'left', paddingLeft: '10px', color: 'rgba(0, 0, 0, 0.31)' }}>Complete the question:</p>
-        <img src={wyrBanner} alt='wyrbanner' className='wyr-banner' />
-        <form onSubmit={this.handleSubmit} className='container-body'>
-          <textarea
-            placeholder='option one'
-            value={optionOneText}
-            onChange={this.handleChangeA}
-            className='text-area'
-            maxLength={74}
-          />
-          {charactersLeftA <= 50 && (
-            <div>
-              {charactersLeftA}
-            </div>
-          )}
-          <span className='question-or'>OR</span>
-          <textarea
-            placeholder='option two'
-            value={optionTwoText}
-            onChange={this.handleChangeB}
-            className='text-area'
-            maxLength={74}
-          />
-          {charactersLeftB <= 50 && (
-            <div>
-              {charactersLeftB}
-            </div>
-          )}
-          <button
-            type='submit'
-            disabled={optionOneText === '' || optionTwoText === ''}
-            className={optionOneText === '' || optionTwoText === '' ? 'button-not-active' : 'button'}
+      <FadeIn delay='100' transitionDuration='400'>
+        <div className='container'>
+          <div className='container-header'>
+            <img src={users[authedUser].avatarURL} alt={'avatar'} className='avatar-medium' />
+            <p>{users[authedUser].name} asks:</p>
+          </div>
+          <p style={{ textAlign: 'left', paddingLeft: '10px', color: 'rgba(0, 0, 0, 0.31)' }}>Complete the question:</p>
+          <img src={wyrBanner} alt='wyrbanner' className='wyr-banner' />
+          <form onSubmit={this.handleSubmit} className='container-body'>
+            <textarea
+              placeholder='option one'
+              value={optionOneText}
+              onChange={this.handleChangeA}
+              className='text-area'
+              maxLength={74}
+            />
+            {charactersLeftA <= 50 && (
+              <div>
+                {charactersLeftA}
+              </div>
+            )}
+            <span className='question-or'>OR</span>
+            <textarea
+              placeholder='option two'
+              value={optionTwoText}
+              onChange={this.handleChangeB}
+              className='text-area'
+              maxLength={74}
+            />
+            {charactersLeftB <= 50 && (
+              <div>
+                {charactersLeftB}
+              </div>
+            )}
+            <button
+              type='submit'
+              disabled={optionOneText === '' || optionTwoText === ''}
+              className={optionOneText === '' || optionTwoText === '' ? 'button-not-active' : 'button'}
 
-          >Submit</button>
-        </form>
-      </div>
+            >Submit</button>
+          </form>
+        </div>
+      </FadeIn>
     );
   }
 }

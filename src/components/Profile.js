@@ -18,7 +18,7 @@ class Profile extends Component {
         <p className='profile-name'>{users[authedUser].name}</p>
         <img src={users[authedUser].avatarURL} alt='avatar' className='avatar-small-profile' />
         <Popup
-          contentStyle={{ padding: '0px', border: 'none', width: '80px', cursor: 'default' }}
+          contentStyle={{ padding: '5px', border: 'none', width: '80px', cursor: 'default' }}
           trigger={<p className='logout-trigger'>Logout</p>}
           position='bottom right'
           offset='1'

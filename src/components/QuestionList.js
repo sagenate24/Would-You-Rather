@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../styles/SharedStyles.css';
 
 import Question from './Question';
+// import FadeIn from 'react-fade-in';
 
 class QuestionList extends Component {
   state = {
@@ -74,6 +75,7 @@ class QuestionList extends Component {
                   if (unansweredID !== id) {
                     return (
                       <li key={id}>
+
                         <Question id={id} btnText='View Poll' />
                       </li>
                     );

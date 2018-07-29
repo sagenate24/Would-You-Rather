@@ -5,6 +5,7 @@
   border-radius: 3px;
   cursor: default;
   margin-bottom: 23px;
+  background-color: white;
 }
 
 .question-header {
@@ -13,7 +14,7 @@
   background-color: rgba(9, 9, 9, 0.105);
 }
 
-.question_body {
+.question-body {
   display: flex;
   padding: 17px;
   flex-direction: row;
@@ -21,7 +22,7 @@
   margin: 0 auto;
 }
 
-.question_info {
+.question-info {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -29,16 +30,16 @@
   margin: 0 auto;
 }
 
-.question_info p {
+.question-info p {
   text-align: left;
 }
 
-.question_info span {
+.question-info span {
   text-align: left;
   font-weight: bold;
 }
 
-.question_info a {
+.question-info a {
   transition: 200ms;
   background-color: rgba(255, 0, 0, 0.728);
   text-decoration: none;
@@ -51,7 +52,7 @@
   cursor: pointer;
 }
 
-.question_info a:hover {
+.question-info a:hover {
   transition-duration: 200ms;
   background-color: red;
   font-size: 14px;

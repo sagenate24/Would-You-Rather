@@ -1,6 +1,6 @@
 import * as NathanUrl from '../Images/me.png';
 import * as ClaireUrl from '../Images/claire.jpg';
-import * as JohnDoe from '../Images/johnDoe.jpg';
+import * as JohnDoe from '../Images/johnDoe.png';
 
 let users = {
   claire: {
@@ -35,6 +35,7 @@ let users = {
       "xj352vofupe1dqz9emx13r": 'optionTwo',
       "vthrdm985a262al8qx3do": 'optionTwo',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
+      "loxhs1bqm25b708cmbf3g": 'optionOne'
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
   },
@@ -47,11 +48,11 @@ let questions = {
     timestamp: 1467166872634,
     optionOne: {
       votes: ['claire'],
-      text: 'have horrible short term memory',
+      text: 'Have horrible short term memory',
     },
     optionTwo: {
       votes: [],
-      text: 'have horrible long term memory'
+      text: 'Have horrible long term memory'
     }
   },
   "6ni6ok3ym7mf1p33lnez": {
@@ -60,7 +61,7 @@ let questions = {
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
-      text: 'have 500 tarantulas crawling in your house',
+      text: 'Have 500 tarantulas crawling in your house',
     },
     optionTwo: {
       votes: ['johndoe'],
@@ -73,11 +74,11 @@ let questions = {
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
-      text: 'have to sneeze but not be able to',
+      text: 'Lose all of your money and valuables',
     },
     optionTwo: {
       votes: ['claire'],
-      text: 'have something stuck in your eye for a year'
+      text: 'All of the pictures you have ever taken'
     }
   },
   "loxhs1bqm25b708cmbf3g": {
@@ -85,12 +86,12 @@ let questions = {
     author: 'nathan',
     timestamp: 1482579767190,
     optionOne: {
-      votes: ['claire'],
-      text: 'be a front-end developer',
+      votes: ['claire', 'johndoe'],
+      text: 'Be a front-end developer',
     },
     optionTwo: {
       votes: [],
-      text: 'be a back-end developer'
+      text: 'Be a back-end developer'
     }
   },
   "vthrdm985a262al8qx3do": {
@@ -99,11 +100,11 @@ let questions = {
     timestamp: 1489579767190,
     optionOne: {
       votes: ['nathan'],
-      text: 'find $50 yourself',
+      text: 'Be completely invisible for one day',
     },
     optionTwo: {
       votes: ['johndoe'],
-      text: 'have your best friend find $500'
+      text: 'Be able to fly for one day'
     }
   },
   "xj352vofupe1dqz9emx13r": {
@@ -112,11 +113,11 @@ let questions = {
     timestamp: 1493579767190,
     optionOne: {
       votes: ['nathan'],
-      text: 'write JavaScript',
+      text: 'Write JavaScript',
     },
     optionTwo: {
       votes: ['johndoe'],
-      text: 'write Swift'
+      text: 'Write Swift'
     }
   },
   "zx6ug2my22i4jtmzi64ld9": {
@@ -125,11 +126,11 @@ let questions = {
     timestamp: 1488579767199,
     optionOne: {
       votes: [],
-      text: 'have your face 2 inches away from a black widow spider for 10 minutes',
+      text: 'Live without the internet',
     },
     optionTwo: {
       votes: ['nathan'],
-      text: 'slap a king cobra in the face 3 times'
+      text: 'Live without AC and heating'
     }
   },
   "3r18vdn9ilggpszlfeal86": {
@@ -138,11 +139,11 @@ let questions = {
     timestamp: 1488579767195,
     optionOne: {
       votes: ['nathan'],
-      text: 'be the dog with a long stick in his mouth trying to walk thru a narrow door',
+      text: 'Be the dog with a long stick in his mouth trying to walk through a narrow door',
     },
     optionTwo: {
       votes: ['claire'],
-      text: 'the cat that jumps for a ledge and falls miserably short'
+      text: 'The cat that jumps for a ledge and falls miserably short'
     }
   },
   "2ezoza3lsan24iezmucfat": {
@@ -151,11 +152,11 @@ let questions = {
     timestamp: 1488579767193,
     optionOne: {
       votes: [],
-      text: 'live one life that lasts 1,000 years',
+      text: 'Live one life that lasts 1,000 years',
     },
     optionTwo: {
       votes: [],
-      text: 'live 10 lives that last 100 years each'
+      text: 'Live 10 lives that last 100 years each'
     }
   }
 }
