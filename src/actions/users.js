@@ -9,6 +9,14 @@ export function receiveUsers(users) {
   }
 }
 
+function addUserQuestion(id, authedUser) {
+  return {
+    type: ADD_USER_QUESTION,
+    id,
+    authedUser,
+  }
+}
+
 export function handleAddUserQuestion(id) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
@@ -23,13 +31,5 @@ export function addUserVotes({ authedUser, qid, answer }) {
     authedUser,
     qid,
     answer,
-  }
-}
-
-function addUserQuestion(id, authedUser) {
-  return {
-    type: ADD_USER_QUESTION,
-    id,
-    authedUser,
   }
 }

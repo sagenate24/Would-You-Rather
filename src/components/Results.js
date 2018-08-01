@@ -9,19 +9,10 @@ class Results extends Component {
   }
 
   handleWord(chosenOption) {
-    const { optionOne, optionTwo } = this.props;
-    const totalVotes = optionOne.votes.length + optionTwo.votes.length;
-
-    let userAnswer = chosenOption.find((id) => {
-      return this.props.authedUser === id
-    });
-
-    if (chosenOption.length === 1 && this.props.authedUser === userAnswer && totalVotes === 1) {
-      return 'Your the first voter!'
-    } else if (chosenOption.length >= 1) {
-      return `${chosenOption.length} out of ${totalVotes} votes.`
+    if (chosenOption.length === 1) {
+      return `${chosenOption.length} vote`;
     } else {
-      return '0 votes here.';
+      return `${chosenOption.length} votes`;
     }
   }
 
@@ -47,7 +38,7 @@ class Results extends Component {
   }
 
   handleRedirect = () => {
-    
+
     this.setState(() => ({
       home: true
     }));

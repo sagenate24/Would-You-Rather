@@ -19,7 +19,9 @@ class PollQuestion extends Component {
   componentDidMount() {
 
     setTimeout(() => {
-      this.setState({ wyrClassName: 'wyr-banner-transition' });
+      this.setState(() => ({
+        wyrClassName: 'wyr-banner-transition'
+      }));
     }, 1);
   }
 
@@ -48,63 +50,63 @@ class PollQuestion extends Component {
       return (<NoMatch />);
     }
 
-      const { author, question, id, userAnswer } = this.props;
-      const { answer, wyrClassName, resultsPage } = this.state;
+    const { author, question, id, userAnswer } = this.props;
+    const { answer, wyrClassName, resultsPage } = this.state;
 
-      const questionAwnsered = userAnswer.filter((answer) => answer === id);
+    const questionAwnsered = userAnswer.filter((answer) => answer === id);
 
-      return (
-        <FadeIn delay='100'>
-          <div className='container'>
-            <div className='container-header'>
-              <img src={author.avatarURL} alt={'avatar'} className='avatar-medium' />
-              <p>{author.name} asks:</p>
-            </div>
-            <Link
-              to='/'
-              className='close-poll'
-            >Close</Link>
-            {questionAwnsered.length > 0
-              ?
-              <div className='results-padding'>
-                <Results key={id} id={id} />
-              </div>
-              :
-              <div>
-                <img src={wyrBanner} alt='wyrbanner' className={wyrClassName} />
-                <FadeIn delay='700' transitionDuration='600'>
-                  <div className='container-body' style={{ color: '#fff' }}>
-                    <span
-                      onClick={() => { this.handleChange('optionOne') }}
-                      className={answer === 'optionOne' ? 'pollQ-option-active' : 'pollQ-option-one'}>
-                      <img
-                        src={CheckMark}
-                        alt='checkMark'
-                        className={answer === 'optionOne' ? 'check-mark' : 'not-active'} />
-                      {question.optionOne.text}?
-                </span>
-                    <span className='question-or'>OR</span>
-                    <span
-                      onClick={() => { this.handleChange('optionTwo') }}
-                      className={answer === 'optionTwo' ? 'pollQ-option-active' : 'pollQ-option-two'}>
-                      <img
-                        src={CheckMark}
-                        alt='checkMark'
-                        className={answer === 'optionTwo' ? 'check-mark' : 'not-active'} />
-                      {question.optionTwo.text}?
-                  </span>
-                    <button
-                      onClick={this.handleSubmit}
-                      className={answer === '' ? 'button-not-active' : 'button'}
-                      disabled={answer === '' || resultsPage === true}
-                    >Submit</button>
-                  </div>
-                </FadeIn>
-              </div>
-            }
+    return (
+      <FadeIn delay='100'>
+        <div className='container'>
+          <div className='container-header'>
+            <img src={author.avatarURL} alt={'avatar'} className='avatar-medium' />
+            <p>{author.name} asks:</p>
           </div>
-        </FadeIn>
-      );
+          <Link
+            to='/'
+            className='close-poll'
+          >Close</Link>
+          {questionAwnsered.length > 0
+            ?
+            <div className='results-padding'>
+              <Results key={id} id={id} />
+            </div>
+            :
+            <div>
+              <img src={wyrBanner} alt='wyrbanner' className={wyrClassName} />
+              <FadeIn delay='700' transitionDuration='600'>
+                <div className='container-body' style={{ color: '#fff' }}>
+                  <span
+                    onClick={() => { this.handleChange('optionOne') }}
+                    className={answer === 'optionOne' ? 'pollQ-option-active' : 'pollQ-option-one'}>
+                    <img
+                      src={CheckMark}
+                      alt='checkMark'
+                      className={answer === 'optionOne' ? 'check-mark' : 'not-active'} />
+                    {question.optionOne.text}?
+                  </span>
+                  <span className='question-or'>OR</span>
+                  <span
+                    onClick={() => { this.handleChange('optionTwo') }}
+                    className={answer === 'optionTwo' ? 'pollQ-option-active' : 'pollQ-option-two'}>
+                    <img
+                      src={CheckMark}
+                      alt='checkMark'
+                      className={answer === 'optionTwo' ? 'check-mark' : 'not-active'} />
+                    {question.optionTwo.text}?
+                  </span>
+                  <button
+                    onClick={this.handleSubmit}
+                    className={answer === '' ? 'button-not-active' : 'button'}
+                    disabled={answer === '' || resultsPage === true}
+                  >Submit</button>
+                </div>
+              </FadeIn>
+            </div>
+          }
+        </div>
+      </FadeIn>
+    );
   }
 }
 

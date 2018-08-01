@@ -16,7 +16,7 @@ class QuestionList extends Component {
         answered: true
       }));
     } else if (info === 'unanswered') {
-      
+
       this.setState(() => ({
         answered: false
       }));
