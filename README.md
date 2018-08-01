@@ -1,14 +1,17 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+App built using React and Redux similar to the “Would You Rather” game. A User will be able to answer questions, create questions, see what questions they haven't answered, see how other users have voted, and to see the ranking of users on a leaderboard.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+There is a `_DATA.js` file that represents a fake database which contains two types of objects aswell as methods to access those objects.
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+## install and Launch
+
+* To install this projects you can download or clone this repository. once finished run `npm install --save` to install and save all dependencies.
+* To launch the project run `npm start` in your terminal.
 
 ## Data
 
-There are two types of objects stored in our database:
+There are two types of objects stored in the database:
 
 * Users
 * Questions
@@ -46,7 +49,7 @@ Voting options are attached to questions. They include:
 | votes             | Array | A list that contains the id of each user who voted for that option|
 | text                | String | The text of the option |
 
-Your code will talk to the database via 4 methods:
+there are 4 methods that are used to access the database
 
 * `_getUsers()`
 * `_getQuestions()`
@@ -55,17 +58,17 @@ Your code will talk to the database via 4 methods:
 
 1) `_getUsers()` Method
 
-*Description*: Get all of the existing users from the database.  
+*Description*: Get all of the existing users from the database.
 *Return Value*: Object where the key is the user’s id and the value is the user object.
 
 2) `_getQuestions()` Method
 
-*Description*: Get all of the existing questions from the database.  
+*Description*: Get all of the existing questions from the database.
 *Return Value*: Object where the key is the question’s id and the value is the question object.
 
 3) `_saveQuestion(question)` Method
 
-*Description*: Save the polling question in the database.  
+*Description*: Save the polling question in the database.
 *Parameters*:  Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
 
 | Attribute | Type | Description |
@@ -94,7 +97,3 @@ Your code will talk to the database via 4 methods:
 | authedUser | String | The id of the user who answered the question|
 | qid | String | The id of the question that was answered|
 | answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
-
-## Contributing
-
-This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
