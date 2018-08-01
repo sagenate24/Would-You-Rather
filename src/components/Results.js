@@ -49,7 +49,7 @@ class Results extends Component {
     const { home } = this.state;
 
     if (home === true) {
-      return <Redirect to='/' />
+      return <Redirect to='/' />;
     }
 
     return (

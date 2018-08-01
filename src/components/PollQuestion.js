@@ -13,7 +13,7 @@ import NoMatch from './NoMatch';
 class PollQuestion extends Component {
   state = {
     answer: '',
-    wyrClassName: 'wyr-initial'
+    wyrClassName: 'wyr-initial',
   }
 
   componentDidMount() {
@@ -121,11 +121,11 @@ function mapStateToProps({ authedUser, questions, users }, props) {
       authedUser,
       userAnswer: Object.keys(userAnswers),
       question,
-      author: users[question.author]
+      author: users[question.author],
     }
   } else {
     return {
-      question: null
+      question: null,
     }
   }
 }
