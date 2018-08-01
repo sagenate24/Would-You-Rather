@@ -4,7 +4,7 @@ import { setAuthedUser } from './authedUser';
 import { handleAddUserQuestion, addUserVotes, receiveUsers } from './users';
 import { addQuestion, answerQuestion, receiveQuestions } from './questions';
 
-const AUTHED_USER = 'nathan';
+const AUTHED_USER = null;
 
 export function handleInitialData() {
   return (dispatch) => {
