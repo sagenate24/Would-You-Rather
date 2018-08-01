@@ -4,7 +4,7 @@
   justify-content: flex-start;
   padding-right: 30px;
   float: right;
-  margin-top: -42px
+  margin-top: -44px
 }
 
 .profile li {
@@ -54,6 +54,7 @@ p.profile-name{
 @media only screen and (max-width: 700px) {
   .profile {
     padding-right: 10px;
+    margin-top: -42px;
   }
   .avatar-small-profile {
     height: 25px;

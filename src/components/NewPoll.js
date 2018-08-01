@@ -15,6 +15,7 @@ class NewPoll extends Component {
 
   handleChangeA = (e) => {
     const optionOneText = e.target.value;
+
     this.setState(() => ({
       optionOneText
     }));
@@ -22,6 +23,7 @@ class NewPoll extends Component {
 
   handleChangeB = (e) => {
     const optionTwoText = e.target.value;
+
     this.setState(() => ({
       optionTwoText
     }));
@@ -32,6 +34,7 @@ class NewPoll extends Component {
 
     const { optionOneText, optionTwoText } = this.state;
     const { dispatch, id } = this.props;
+
     dispatch(handleAddQuestion(optionOneText, optionTwoText));
 
     this.setState(() => ({
@@ -67,7 +70,7 @@ class NewPoll extends Component {
               maxLength={74}
             />
             {charactersLeftA <= 50 && (
-              <div>
+              <div className='option-length'>
                 {charactersLeftA}
               </div>
             )}
@@ -80,7 +83,7 @@ class NewPoll extends Component {
               maxLength={74}
             />
             {charactersLeftB <= 50 && (
-              <div>
+              <div className='option-length'>
                 {charactersLeftB}
               </div>
             )}
@@ -88,7 +91,6 @@ class NewPoll extends Component {
               type='submit'
               disabled={optionOneText === '' || optionTwoText === ''}
               className={optionOneText === '' || optionTwoText === '' ? 'button-not-active' : 'button'}
-
             >Submit</button>
           </form>
         </div>

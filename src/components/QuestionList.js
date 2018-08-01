@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import '../styles/SharedStyles.css';
 
 import Question from './Question';
-// import FadeIn from 'react-fade-in';
 
 class QuestionList extends Component {
   state = {
@@ -12,9 +11,15 @@ class QuestionList extends Component {
 
   handleChange = (info) => {
     if (info === 'answered') {
-      this.setState({ answered: true });
+
+      this.setState(() => ({
+        answered: true
+      }));
     } else if (info === 'unanswered') {
-      this.setState({ answered: false });
+      
+      this.setState(() => ({
+        answered: false
+      }));
     }
   }
 
@@ -36,7 +41,7 @@ class QuestionList extends Component {
           >Answered Questions</p>
         </div>
         <ul className='q-list-ul'>
-          {this.state.answered
+          {answered
             ? (
               questionIds.map((id) => {
                 let answeredID = userawnser.find((answer) => {
@@ -59,8 +64,8 @@ class QuestionList extends Component {
               questionIds.length === userawnser.length
                 ?
                 <div className='no-more-questions'>
-                  <h1>you have answered all questions</h1>
-                  <p>check your status on the leaderboard and/or create new questions</p>
+                  <h1>You have answered all questions,</h1>
+                  <p>Check your status on the leaderboard and/or create new questions!</p>
                   <p>Thank you for playing!</p>
                 </div>
                 :
@@ -75,7 +80,6 @@ class QuestionList extends Component {
                   if (unansweredID !== id) {
                     return (
                       <li key={id}>
-
                         <Question id={id} btnText='View Poll' />
                       </li>
                     );

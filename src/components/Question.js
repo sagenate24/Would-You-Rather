@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { formatPollQuestion } from '../utils/helpers';
 import { Link, withRouter } from 'react-router-dom';
 import '../styles/Question.css';
 import '../styles/SharedStyles.css';
@@ -10,22 +9,24 @@ class Question extends Component {
   handleStringLength(str) {
     const ending = '...';
 
-    if (str.length > 15) {
-      return str.substring(0, 15 - ending.length) + ending;
-    } else { return str; }
+    if (str.length > 21) {
+      return str.substring(0, 21 - ending.length) + ending;
+    } else {
+      return str;
+    }
   }
 
   render() {
-    const { author, avatar, id, optionOne } = this.props.question;
+    const { name, avatarURL, id, optionOne } = this.props;
 
     return (
-      <FadeIn delay='200' transitionDuration='600'>
+      <FadeIn delay='200'>
         <div className='question'>
           <div className='question-header'>
-            <span>{author.name} asks:</span>
+            <span>{name} asks:</span>
           </div>
           <div className='question-body'>
-            <img src={avatar} alt='avatar' className='avatar-large' />
+            <img src={avatarURL} alt='avatar' className='avatar-large' />
             <div className='question-info'>
               <span>Would You Rather</span>
               <p>{this.handleStringLength(optionOne.text)}</p>
@@ -38,11 +39,14 @@ class Question extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users, questions }, { id }) {
+function mapStateToProps({ users, questions }, { id }) {
   const question = questions[id];
+  const { name, avatarURL } = users[question.author];
 
   return {
-    question: formatPollQuestion(question, users[question.author], authedUser)
+    ...question,
+    name,
+    avatarURL,
   }
 }
 

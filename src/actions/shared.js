@@ -4,7 +4,7 @@ import { setAuthedUser } from './authedUser';
 import { handleAddUserQuestion, addUserVotes, receiveUsers } from './users';
 import { addQuestion, answerQuestion, receiveQuestions } from './questions';
 
-const AUTHED_USER = null;
+const AUTHED_USER = 'nathan';
 
 export function handleInitialData() {
   return (dispatch) => {
@@ -14,15 +14,14 @@ export function handleInitialData() {
       dispatch(receiveUsers(users));
       dispatch(setAuthedUser(AUTHED_USER));
       dispatch(receiveQuestions(questions));
-      dispatch(hideLoading());
-    });
+    }).then(() => dispatch(hideLoading()));
   }
 }
 
 export function handleAddQuestion(optionOneText, optionTwoText) {
   return (dispatch, getState) => {
     dispatch(showLoading());
-    const { authedUser } = getState()
+    const { authedUser } = getState();
 
     return saveQuestion({
       optionOneText,
@@ -40,12 +39,10 @@ export function handleAnswerQuestion(info) {
     dispatch(answerQuestion(info));
     dispatch(addUserVotes(info));
 
-    setTimeout(() => {
       return saveQuestionAnswer(info).catch((e) => {
         console.warn('There was an error with handling your answer: ', e);
         dispatch(answerQuestion(info));
         alert('There was an error answering that poll. Pleas try again');
       }).then(() => dispatch(hideLoading()));
-    }, 300);
   }
 }

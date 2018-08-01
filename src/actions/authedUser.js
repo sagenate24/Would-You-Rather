@@ -13,10 +13,8 @@ export function handleSetAuthedUser(info) {
   return (dispatch) => {
     dispatch(showLoading());
 
-    setTimeout(() => {
       dispatch(setAuthedUser(info));
       dispatch(hideLoading());
-    }, 1000);
   }
 }
 
@@ -30,10 +28,8 @@ export function logOutUser() {
 export function handleLogOutUser() {
   return (dispatch) => {
     dispatch(showLoading());
-
-    setTimeout(() => {
+    
       dispatch(logOutUser());
       dispatch(hideLoading());
-    }, 1000);
   }
 }

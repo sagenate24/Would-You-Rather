@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import { handleSetAuthedUser } from '../actions/authedUser';
 import '../styles/Login.css';
-import '../styles/App.css';
 import '../styles/SharedStyles.css';
 import * as wyrBanner from '../Images/wyrBanner.png';
 import FadeIn from 'react-fade-in';

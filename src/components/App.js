@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
-import FadeIn from 'react-fade-in';
 import '../styles/App.css';
 
 import PollQuestion from './PollQuestion';
@@ -23,6 +22,8 @@ class App extends Component {
   returnProfile() {
     if (this.props && this.props.authedUser) {
       return (<Profile />);
+    } else {
+      return null;
     }
   }
 

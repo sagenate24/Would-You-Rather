@@ -293,6 +293,13 @@ div.leaderboard-body:last-child {
   background-color: #000;
 }
 
+div.option-length {
+  /* text-align: right; */
+  /* margin-top: 1px; */
+  font-size: 16px;
+  color: #C3392A
+}
+
 @media only screen and (max-width: 639px) {
   .wyr-banner-transition {
     transition-delay: 300ms;
