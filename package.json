@@ -21,6 +21,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "enzyme": "^3.4.1",
+    "enzyme-adapter-react-16": "^1.2.0",
     "redux-devtools-extension": "^2.13.5"
   }
 }

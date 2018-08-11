@@ -14,7 +14,7 @@ import Login from './Login';
 import NoMatch from './NoMatch';
 import Profile from './Profile';
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
