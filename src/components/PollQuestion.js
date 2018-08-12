@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAnswerQuestion } from '../actions/shared';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import '../styles/SharedStyles.css';
 import * as CheckMark from '../Images/checkMark.png';
 import * as wyrBanner from '../Images/wyrBanner.png';
@@ -45,6 +45,10 @@ class PollQuestion extends Component {
     }));
   }
 
+  goToHome = () => {
+    this.props.history.push('/');
+  }
+
   render() {
     if (this.props.question === null) {
       return (<NoMatch />);
@@ -55,6 +59,8 @@ class PollQuestion extends Component {
 
     const questionAwnsered = userAnswer.filter((answer) => answer === id);
 
+    // TODO: use Link with memory router
+
     return (
       <FadeIn delay='100'>
         <div className='container'>
@@ -62,10 +68,11 @@ class PollQuestion extends Component {
             <img src={author.avatarURL} alt={'avatar'} className='avatar-medium' />
             <p>{author.name} asks:</p>
           </div>
-          <Link
-            to='/'
+          <div
             className='close-poll'
-          >Close</Link>
+            onClick={this.goToHome}>
+            CLOSE
+          </div>
           {questionAwnsered.length > 0
             ?
             <div className='results-padding'>
@@ -130,4 +137,4 @@ function mapStateToProps({ authedUser, questions, users }, props) {
   }
 }
 
-export default connect(mapStateToProps)(PollQuestion);
+export default withRouter(connect(mapStateToProps)(PollQuestion));

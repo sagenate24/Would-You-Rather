@@ -1,10 +1,10 @@
 
-jest.mock('../actions/authedUser')
+jest.mock('../../actions/authedUser');
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Login from './Login';
-import { handleSetAuthedUser } from '../actions/authedUser';
+import Login from '../Login';
+import { handleSetAuthedUser } from '../../actions/authedUser';
 
 it('should be able to select a user', () => {
   const event = { target: { value: 'user' } };
@@ -16,7 +16,7 @@ it('should be able to select a user', () => {
 });
 
 it('should log in as the selected user', () => {
-  handleSetAuthedUser.mockImplementation(() => 'hahah')
+  handleSetAuthedUser.mockImplementation(() => 'hahah');
 
   const e = {
     preventDefault: jest.fn(),
@@ -32,11 +32,14 @@ it('should log in as the selected user', () => {
   loginComp.handleAuthedUser(e);
 
   expect(e.preventDefault).toHaveBeenCalled();
+  expect(e.preventDefault).toHaveBeenCalledTimes(1);
   expect(mockDispatch).toHaveBeenCalledWith('hahah');
+  expect(mockDispatch).toHaveBeenCalledTimes(1);
   expect(handleSetAuthedUser).toHaveBeenCalledWith(loginComp.state.authedUser);
+  expect(handleSetAuthedUser).toHaveBeenCalledTimes(1);
 });
 
-it.only('should render a list of multiple users', () => {
+it('should render a list of multiple users', () => {
   let mockUserArray = ['nathan', 'claire', 'john'];
 
   const mockUsers = {
@@ -52,7 +55,7 @@ it.only('should render a list of multiple users', () => {
       id: 'john',
       name: 'John Doe'
     }
-  }
+  };
 
   const loginComp = mount(<Login.WrappedComponent userArray={mockUserArray} users={mockUsers} />);
 
@@ -63,9 +66,9 @@ it.only('should render a list of multiple users', () => {
 });
 
 
-it.only('should not blow up into smithereens if there are no users', () => {
+it('should not blow up into smithereens if there are no users', () => {
   let mockUserArray = [];
-  const mockUsers = {}
+  const mockUsers = {};
 
   const loginComp = mount(<Login.WrappedComponent userArray={mockUserArray} users={mockUsers} />);
 

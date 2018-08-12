@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should not blow up into smithereens if there are no users 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "opacity": 0,
+        "position": "relative",
+        "top": 20,
+        "transition": "opacity 400ms, top 400ms",
+      }
+    }
+  >
+    <div
+      className="leader-container"
+    >
+      <div
+        className="container-header"
+      >
+        <p
+          className="leader-text-header"
+        >
+          Leaderboard 
+          <span
+            aria-label="Trophie"
+            role="img"
+            style={
+              Object {
+                "paddingLeft": "5px",
+              }
+            }
+          >
+            🏆
+          </span>
+        </p>
+      </div>
+      <div
+        className="user-container"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render a list  users 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "opacity": 0,
+        "position": "relative",
+        "top": 20,
+        "transition": "opacity 400ms, top 400ms",
+      }
+    }
+  >
+    <div
+      className="leader-container"
+    >
+      <div
+        className="container-header"
+      >
+        <p
+          className="leader-text-header"
+        >
+          Leaderboard 
+          <span
+            aria-label="Trophie"
+            role="img"
+            style={
+              Object {
+                "paddingLeft": "5px",
+              }
+            }
+          >
+            🏆
+          </span>
+        </p>
+      </div>
+      <div
+        className="user-container"
+      >
+        <div
+          className="leaderboard-body"
+          data-id="nathan"
+        >
+          <img
+            alt="rank"
+            className="leader-trophey"
+            src={
+              Object {
+                "0": "t",
+                "1": "r",
+                "10": "g",
+                "2": "o",
+                "3": "p",
+                "4": "h",
+                "5": "i",
+                "6": "e",
+                "7": ".",
+                "8": "p",
+                "9": "n",
+                "default": "trophie.png",
+              }
+            }
+          />
+          <div
+            className="leader-avatar"
+          >
+            <img
+              alt="avatar"
+              className="avatar-leaderboard"
+              src={
+                Object {
+                  "0": "m",
+                  "1": "e",
+                  "2": ".",
+                  "3": "p",
+                  "4": "n",
+                  "5": "g",
+                  "default": "me.png",
+                }
+              }
+            />
+          </div>
+          <div
+            className="leader-info"
+          >
+            <h3>
+              Nathan Sage
+            </h3>
+            <p>
+               questions asked: 
+              <span>
+                4
+              </span>
+            </p>
+            <p>
+              questions answered: 
+              <span>
+                4
+              </span>
+            </p>
+          </div>
+          <div
+            className="leader-score"
+          >
+            <div
+              className="leader-score-header"
+            >
+              <p>
+                Score
+              </p>
+            </div>
+            <span
+              className="leader-total-number"
+            >
+              8
+            </span>
+          </div>
+        </div>
+        <div
+          className="leaderboard-body"
+          data-id="claire"
+        >
+          <img
+            alt="rank"
+            className="leader-trophey"
+            src={
+              Object {
+                "0": "t",
+                "1": "r",
+                "10": "n",
+                "11": "g",
+                "2": "o",
+                "3": "p",
+                "4": "h",
+                "5": "i",
+                "6": "e",
+                "7": "2",
+                "8": ".",
+                "9": "p",
+                "default": "trophie2.png",
+              }
+            }
+          />
+          <div
+            className="leader-avatar"
+          >
+            <img
+              alt="avatar"
+              className="avatar-leaderboard"
+              src={
+                Object {
+                  "0": "c",
+                  "1": "l",
+                  "2": "a",
+                  "3": "i",
+                  "4": "r",
+                  "5": "e",
+                  "6": ".",
+                  "7": "j",
+                  "8": "p",
+                  "9": "g",
+                  "default": "claire.jpg",
+                }
+              }
+            />
+          </div>
+          <div
+            className="leader-info"
+          >
+            <h3>
+              Claire Teters
+            </h3>
+            <p>
+               questions asked: 
+              <span>
+                3
+              </span>
+            </p>
+            <p>
+              questions answered: 
+              <span>
+                4
+              </span>
+            </p>
+          </div>
+          <div
+            className="leader-score"
+          >
+            <div
+              className="leader-score-header"
+            >
+              <p>
+                Score
+              </p>
+            </div>
+            <span
+              className="leader-total-number"
+            >
+              7
+            </span>
+          </div>
+        </div>
+        <div
+          className="leaderboard-body"
+          data-id="johndoe"
+        >
+          <img
+            alt="rank"
+            className="leader-trophey"
+            src={
+              Object {
+                "0": "t",
+                "1": "r",
+                "10": "n",
+                "11": "g",
+                "2": "o",
+                "3": "p",
+                "4": "h",
+                "5": "i",
+                "6": "e",
+                "7": "3",
+                "8": ".",
+                "9": "p",
+                "default": "trophie3.png",
+              }
+            }
+          />
+          <div
+            className="leader-avatar"
+          >
+            <img
+              alt="avatar"
+              className="avatar-leaderboard"
+              src={
+                Object {
+                  "0": "j",
+                  "1": "o",
+                  "10": "g",
+                  "2": "h",
+                  "3": "n",
+                  "4": "D",
+                  "5": "o",
+                  "6": "e",
+                  "7": ".",
+                  "8": "p",
+                  "9": "n",
+                  "default": "johnDoe.png",
+                }
+              }
+            />
+          </div>
+          <div
+            className="leader-info"
+          >
+            <h3>
+              John Doe
+            </h3>
+            <p>
+               questions asked: 
+              <span>
+                2
+              </span>
+            </p>
+            <p>
+              questions answered: 
+              <span>
+                4
+              </span>
+            </p>
+          </div>
+          <div
+            className="leader-score"
+          >
+            <div
+              className="leader-score-header"
+            >
+              <p>
+                Score
+              </p>
+            </div>
+            <span
+              className="leader-total-number"
+            >
+              6
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -5,7 +5,7 @@ export default function authedUser(state = null, action) {
     case SET_AUTHED_USER:
       return action.id;
     case LOG_OUT_USER:
-      return action.id = null;
+      return null;
     default:
       return state;
   }

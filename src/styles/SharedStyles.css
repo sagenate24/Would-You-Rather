@@ -277,6 +277,7 @@ div.leaderboard-body:last-child {
 
 .close-poll {
   display: block;
+  cursor: pointer;
   width: 40px;
   height: 43px;
   margin-left: 10px;
