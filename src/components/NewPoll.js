@@ -57,7 +57,7 @@ class NewPoll extends Component {
         <div className='container'>
           <div className='container-header'>
             <img src={users[authedUser].avatarURL} alt={'avatar'} className='avatar-medium' />
-            <p>{users[authedUser].name} asks:</p>
+            <p data-uitest='userNameHeader'>{users[authedUser].name} asks:</p>
           </div>
           <p style={{ textAlign: 'left', paddingLeft: '10px', color: 'rgba(0, 0, 0, 0.31)' }}>Complete the question:</p>
           <img src={wyrBanner} alt='wyrbanner' className='wyr-banner' />
@@ -66,6 +66,7 @@ class NewPoll extends Component {
               placeholder='option one'
               value={optionOneText}
               onChange={this.handleChangeA}
+              data-uitest='optionOneText'
               className='text-area'
               maxLength={74}
             />
@@ -79,6 +80,7 @@ class NewPoll extends Component {
               placeholder='option two'
               value={optionTwoText}
               onChange={this.handleChangeB}
+              data-uitest='optionTwoText'
               className='text-area'
               maxLength={74}
             />
@@ -89,6 +91,7 @@ class NewPoll extends Component {
             )}
             <button
               type='submit'
+              data-uitest='submitNewPollButton'
               disabled={optionOneText === '' || optionTwoText === ''}
               className={optionOneText === '' || optionTwoText === '' ? 'button-not-active' : 'button'}
             >Submit</button>

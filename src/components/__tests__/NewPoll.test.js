@@ -1,4 +1,3 @@
-
 jest.mock('../../actions/shared');
 
 import React from 'react';
@@ -51,7 +50,7 @@ it('should update state of with the users provided questions', () => {
 });
 
 it('should create a new question', () => {
-  
+
   handleAddQuestion.mockImplementation(() => 'value');
 
   const e = { preventDefault: jest.fn() };
@@ -84,4 +83,4 @@ it('should redirect to the home page if a new poll was submitted', () => {
   wrapper.instance();
   expect(wrapper.children()).toHaveLength(1);
 
-})
+});

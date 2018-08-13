@@ -1,4 +1,3 @@
-
 jest.mock('../../actions/authedUser');
 
 import React from 'react';
