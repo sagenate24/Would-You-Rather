@@ -5,9 +5,9 @@
 
   <testsuite name="tests.2_newPoll"
     errors="0" failures="0" hostname="" id="" package="tests" skipped="0"
-    tests="1" time="4.489" timestamp="Mon, 13 Aug 2018 05:02:52 GMT">
+    tests="1" time="8.511" timestamp="Mon, 13 Aug 2018 22:43:24 GMT">
   
-    <testcase name="create newQuestion" classname="tests.2_newPoll" time="4.489" assertions="10">
+    <testcase name="Create new question" classname="tests.2_newPoll" time="8.511" assertions="10">
 
     
 

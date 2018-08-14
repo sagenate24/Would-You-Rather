@@ -68,9 +68,9 @@ it('should render a list of only one user', () => {
     }
   ];
 
-  const LeaderComponent = mount(<Leaderboard.WrappedComponent users={mockUser} />);
+  const wrapper = mount(<Leaderboard.WrappedComponent users={mockUser} />);
 
-  expect(LeaderComponent.find('div.user-container').children()).toHaveLength(1);
+  expect(wrapper.find('div.user-container').children()).toHaveLength(1);
 
 });
 

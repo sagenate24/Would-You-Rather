@@ -59,8 +59,6 @@ class PollQuestion extends Component {
 
     const questionAwnsered = userAnswer.filter((answer) => answer === id);
 
-    // TODO: use Link with memory router
-
     return (
       <FadeIn delay='100'>
         <div className='container'>

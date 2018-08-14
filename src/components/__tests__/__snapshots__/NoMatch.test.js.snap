@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div>
+  <h1>
+    404:
+  </h1>
+  <h3>
+    Page not found
+  </h3>
+  <br />
+  <img
+    alt="sad face"
+    src={
+      Object {
+        "0": "s",
+        "1": "a",
+        "10": "g",
+        "2": "d",
+        "3": "F",
+        "4": "a",
+        "5": "c",
+        "6": "e",
+        "7": ".",
+        "8": "p",
+        "9": "n",
+        "default": "sadFace.png",
+      }
+    }
+  />
+</div>
+`;

@@ -1,5 +1,5 @@
 module.exports = {
-  
+
   'Create new question'(browser) {
     const signInPage = browser.page.signIn();
     const newPollPage = browser.page.newPoll();

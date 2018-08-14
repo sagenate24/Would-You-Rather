@@ -7,11 +7,11 @@ import { handleSetAuthedUser } from '../../actions/authedUser';
 
 it('should be able to select a user', () => {
   const event = { target: { value: 'user' } };
-  const loginComp = shallow(<Login.WrappedComponent userArray={[]} />).instance();
+  const wrapper = shallow(<Login.WrappedComponent userArray={[]} />).instance();
 
-  loginComp.setState({ authedUser: '' });
-  loginComp.handleChange(event);
-  expect(loginComp.state.authedUser).toEqual('user');
+  wrapper.setState({ authedUser: '' });
+  wrapper.handleChange(event);
+  expect(wrapper.state.authedUser).toEqual('user');
 });
 
 it('should log in as the selected user', () => {
@@ -25,16 +25,16 @@ it('should log in as the selected user', () => {
   };
 
   const mockDispatch = jest.fn();
-  const loginComp = shallow(<Login.WrappedComponent userArray={[]} dispatch={mockDispatch} />).instance();
-  loginComp.setState({ authedUser: 'cheetos' });
+  const wrapper = shallow(<Login.WrappedComponent userArray={[]} dispatch={mockDispatch} />).instance();
+  wrapper.setState({ authedUser: 'cheetos' });
 
-  loginComp.handleAuthedUser(e);
+  wrapper.handleAuthedUser(e);
 
   expect(e.preventDefault).toHaveBeenCalled();
   expect(e.preventDefault).toHaveBeenCalledTimes(1);
   expect(mockDispatch).toHaveBeenCalledWith('hahah');
   expect(mockDispatch).toHaveBeenCalledTimes(1);
-  expect(handleSetAuthedUser).toHaveBeenCalledWith(loginComp.state.authedUser);
+  expect(handleSetAuthedUser).toHaveBeenCalledWith(wrapper.state.authedUser);
   expect(handleSetAuthedUser).toHaveBeenCalledTimes(1);
 });
 
@@ -56,12 +56,12 @@ it('should render a list of multiple users', () => {
     }
   };
 
-  const loginComp = mount(<Login.WrappedComponent userArray={mockUserArray} users={mockUsers} />);
+  const wrapper = mount(<Login.WrappedComponent userArray={mockUserArray} users={mockUsers} />);
 
-  expect(loginComp.find('select').children()).toHaveLength(4);
-  expect(loginComp.find('option[value="nathan"]').text()).toEqual('Nathan Sage');
-  expect(loginComp.find('option[value="claire"]').text()).toEqual('Claire Teters');
-  expect(loginComp.find('option[value="john"]').text()).toEqual('John Doe');
+  expect(wrapper.find('select').children()).toHaveLength(4);
+  expect(wrapper.find('option[value="nathan"]').text()).toEqual('Nathan Sage');
+  expect(wrapper.find('option[value="claire"]').text()).toEqual('Claire Teters');
+  expect(wrapper.find('option[value="john"]').text()).toEqual('John Doe');
 });
 
 
@@ -69,7 +69,7 @@ it('should not blow up into smithereens if there are no users', () => {
   let mockUserArray = [];
   const mockUsers = {};
 
-  const loginComp = mount(<Login.WrappedComponent userArray={mockUserArray} users={mockUsers} />);
+  const wrapper = mount(<Login.WrappedComponent userArray={mockUserArray} users={mockUsers} />);
 
-  expect(loginComp.find('select').children()).toHaveLength(1);
+  expect(wrapper.find('select').children()).toHaveLength(1);
 });
